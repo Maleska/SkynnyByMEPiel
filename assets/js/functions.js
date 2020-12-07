@@ -119,39 +119,34 @@ function showsections (id){
 			}
 			break;
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			 }
 	
 	
+	
+}
+
+function getCitas()
+{
+	"use strict";
+	$.ajax({
+            type:'get', //aqui puede ser igual get
+            url: 'php/getCitas.php',//aqui va tu direccion donde esta tu funcion php
+            //data: {pregunta:pregunta},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+                //lo que devuelve tu archivo mifuncion.php
+				var datos = response;
+                var target = $("#tableCitas");
+                //target.empty();
+              
+                for (var i = 0; i < datos.length; i++) {
+                   
+                    var product = datos[i];
+							/*if(product['titulo'] !== ""){
+                    target.append("<tr><td>"+ product['id'] +"</td><td>"+ product['titulo'] +"</td><td>"+ product['tipo'] +"</td><td><img src=\"images/ic_edit.png\" style=\"height: 15px;width: 15px\"></td><td><img src=\"images/if_Delete.png\" style=\"height: 15px;width: 15px\"></td></tr>");
+							}*/
+					 }
+                }
+           });
 	
 }

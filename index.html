@@ -900,6 +900,7 @@
     </section><!-- End Contact Section -->
 
 	 <!-- Modal -->
+	  <form action="php/validalogin.php" method="post">
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -911,17 +912,18 @@
 			  </div>
 			  <div class="modal-body">
 				<label>Usuario</label>
-				  <p><input type="text" id="txbuser" name="txbuser" class="form-control"></p>
+				  <p><input type="text" id="login" name="login" class="form-control" required></p>
 				 <label>Contraseña</label>
-				  <p><input type="password" id="txbpass" name="txbpass" class="form-control"></p>
+				  <p><input type="password" id="txbpass" name="password" class="form-control" required></p>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-				<button type="button" class="btn btn-primary">Iniciar sesión</button>
+				<button type="submit" class="btn btn-primary">Iniciar sesión</button>
 			  </div>
 			</div>
 		  </div>
 		</div>
+		  </form>
 	  
 	  
   </main><!-- End #main -->
