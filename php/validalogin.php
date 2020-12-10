@@ -10,7 +10,9 @@ $password = "";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
 //$conn = sqlsrv_connect( $serverName, $connectionInfo);
-
+if($conn){
+	echo("Se conecto");
+}
 if( $conn ) {
 	
 $username = $_POST['login'];
@@ -24,6 +26,7 @@ $password  = $_POST['password'];
    //echo( $row['count']);
 		$cantidad =$row['count'];
 	if($cantidad == 1){
+		$_SESSION['rol'] ="recepcionista";
 		 echo "<script> location.href='../inicio.html'; </script>";
 		 exit;
 	}else{

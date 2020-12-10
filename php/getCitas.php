@@ -1,6 +1,12 @@
 <?php
 
 session_start();
+
+if(isset($_SESSION['rol']))
+{
+     echo "<script> location.href='../index.html'; </script>";
+	die();
+}
  
 $servername = "localhost";
 $database = "skinny";
@@ -9,7 +15,7 @@ $password = "";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
-
+echo($conn);
 if( $conn ) {
     // echo "Conexión establecida.<br />";
 }else{
