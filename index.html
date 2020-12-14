@@ -40,17 +40,18 @@
 <body>
 
   <!-- ======= Top Bar ======= -->
-  <div id="topbar" class="d-none d-lg-flex align-items-center fixed-top">
+	<br>
+  <div id="topbar" style="margin-top: 10px" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex">
-      <div class="contact-info mr-auto"><em class="icofont-envelope"></em> <a href="mailto:contact@example.com">contact@example.com</a> <em class="icofont-phone"></em> +1 5589 55488 55 <em class="icofont-google-map"></em> A108 Adam Street, NY 
-		<p><em class="icofont-clock-time">Lunes a viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm</em></p>
+      <div class="contact-info mr-auto"><!--<em class="icofont-envelope"></em> <a href="mailto:contact@example.com">contact@example.com</a> <em class="icofont-phone"></em> +1 5589 55488 55 <em class="icofont-google-map"></em> A108 Adam Street, NY 
+		<p>--><em class="icofont-clock-time">Lunes a viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm</em><!--</p>-->
 		</div>
       <div class="social-links">
         <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
         <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
         <a href="#" class="skype"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
       </div>
     </div>
   </div>
@@ -59,7 +60,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html"><img src="assets/img/MEPiel/Logo.jpg" style="width: 250px;height: 60px"> </img> </a></h1>
+      <h1 class="logo mr-auto"><a href="index.html"><img src="assets/img/MEPiel/Logo.jpg" style="width: 250px"/> </a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -67,7 +68,16 @@
         <ul>
           <li class="active"><a href="index.html">Inicio</a></li>
           <!--<li><a href="#about">Nosotros</a></li>-->
-          <li><a href="#services">Servicios</a></li>
+         <li class="drop-down"><a href="#">Servicios</a>
+			<ul>
+                  <li><a href="#radiofrecuencia" onClick="showsections(1)">Radiofrecuencia</a></li>
+                  <li><a href="#Maderoterapia" onClick="showsections(2)">Maderoterapia</a></li>
+                  <li><a href="#Carboxiterapia" onClick="showsections(3)">Carboxiterapia</a></li>
+                  <li><a href="#Ultrasonido" onClick="showsections(4)">Ultrasonido</a></li>
+                  <li><a href="#Enzimas" onClick="showsections(5)">Enzimas</a></li>
+				  <li><a href="#Electrodos" onClick="showsections(6)">Electrodos</a></li>
+                </ul>
+			</li>
           <!--<li><a href="#departments">Departments</a></li>
           <li><a href="#doctors">Doctors</a></li>
           <li class="drop-down"><a href="">Drop Down</a>
@@ -92,20 +102,52 @@
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="#appointment" class="appointment-btn scrollto">Haz una cita</a>
+      <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalCitas">Haz una cita</a>
+	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#exampleModal">Iniciar Sesión</a>
+	  
 
     </div>
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
-    <div class="container">
+    <div class="container" id="divBienvenida">
+		<h1>Bienvenido a Skinny by M.E.Piel</h1>
       <!--<h1>Welcome to Medilab</h1>
       <h2>We are team of talanted designers making websites with Bootstrap</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
     </div>
+	  <br>
+	<div class="container" id="radiofrecuencia" style="display: none">
+		<br>
+		<br>
+	  <h1>Radiofrecuencia</h1>
+	</div>
+	  <div class="container" id="Maderoterapia" style="display: none">
+	  <h1 style="margin-top: -140px">Maderoterapia</h1>
+	</div>
+	 <div class="container" id="Carboxiterapia" style="display: none">
+		<br>
+		<br>
+	  <h1 style="margin-top: -140px">Carboxiterapia</h1>
+	</div>
+	 <div class="container" id="Ultrasonido" style="display: none">
+		<br>
+		<br>
+	  <h1 style="margin-top: -140px">Ultrasonido</h1>
+	</div>
+	  <div class="container" id="Enzimas" style="display: none">
+		<br>
+		<br>
+	  <h1 style="margin-top: -140px">Enzimas</h1>
+	</div>
+	 <div class="container" id="Electrodos" style="display: none">
+		<br>
+		<br>
+	  <h1 style="margin-top: -140px">Electrodos</h1>
+	</div>
+	  
   </section><!-- End Hero -->
-
   <main id="main">
 
     <!-- ======= Why Us Section ======= -->
@@ -200,43 +242,58 @@
 
         <div class="row">
 
-          <div class="col-lg-3 col-md-6">
+          <!--<div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class="icofont-doctor-alt"></i>
               <span data-toggle="counter-up">85</span>
               <p>Doctors</p>
             </div>
-          </div>
+          </div>--->
 
-          <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+          <!--<div class="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
               <i class="icofont-patient-bed"></i>
               <span data-toggle="counter-up">18</span>
               <p>Departments</p>
             </div>
-          </div>
+          </div>-->
 
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <!--<div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class="icofont-laboratory"></i>
               <span data-toggle="counter-up">8</span>
               <p>Research Labs</p>
             </div>
-          </div>
+          </div>-->
 
-          <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+          <!--<div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class="icofont-award"></i>
               <span data-toggle="counter-up">150</span>
               <p>Awards</p>
             </div>
-          </div>
+          </div>-->
 
         </div>
 
       </div>
     </section><!-- End Counts Section -->
 
+	  <!-- ======= Section RadioFrecuencia ======= -->
+	<!--<section id="radiofrecuencia" class="services" >
+      <div class="container">
+
+        <div class="row">
+
+			<h4>holacvbnmcvbnm,ghjkl</h4>
+
+        </div>
+
+      </div>
+    </section>-->
+
+	  <!-- End  Section Radio Frecuencia -->
+	  
     <!-- ======= Services Section ======= -->
     <section id="services" class="services" style="display: none">
       <div class="container">
@@ -301,7 +358,7 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Appointment Section ======= -->
-    <section id="appointment" class="appointment section-bg" style="display: none">
+    <section id="appointment" class="appointment section-bg" style="display: none" >
       <div class="container">
 
         <div class="section-title">
@@ -812,11 +869,11 @@
             <form action="forms/contact.php" method="post" role="form" class="php-email-form">
               <div class="form-row">
                 <div class="col-md-6 form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                  <input type="text" name="names" class="form-control" id="names" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                   <div class="validate"></div>
                 </div>
                 <div class="col-md-6 form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                  <input type="email" class="form-control" name="emails" id="emails" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
                   <div class="validate"></div>
                 </div>
               </div>
@@ -843,10 +900,87 @@
       </div>
     </section><!-- End Contact Section -->
 
+	 <!-- Modal -->
+	  <form action="php/validalogin.php" method="post">
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<label>Usuario</label>
+				  <p><input type="text" id="login" name="login" class="form-control" required></p>
+				 <label>Contraseña</label>
+				  <p><input type="password" id="txbpass" name="password" class="form-control" required></p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				<button type="submit" class="btn btn-primary">Iniciar sesión</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		  </form>
+	  
+	  
+	  <!-- Modal  para hacer una cita-->
+	  <form action="php/validalogin.php" method="post">
+		<div class="modal fade" id="ModalCitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabelnam">Hacer una cita</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<label>Seleccionar servicio</label>
+				  <p><select class="form-control" id="selServicio" style="height: auto;width: auto"></select></p>
+				 <div id="divCalendario">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<div class="input-group date" id="datetimepicker1">
+								<input type="date" class="form-control" />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div id="divTable">
+					 
+						 <table>
+							 <thead><tr><td><span>Favor de seleccionar la hora</span></td></tr></thead>
+						<tbody id="tbodyHours">
+							 
+						</tbody>
+						</table>
+					 
+					</div>
+					 <!--<input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Seleccionar fecha" data-rule="minlen:4" data-msg="Please enter at least 4 chars">-->
+					 <!--<input type="datetime" name="datetime" class="form-control datepicker" id="datetime" placeholder="Seleccionar fecha" data-rule="minlen:4" >-->
+					 
+				  </div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				<button type="submit" class="btn btn-primary">Iniciar sesión</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		  </form>
+	  
+	  
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" style="display: none">
 
     <div class="footer-top">
       <div class="container">
@@ -877,7 +1011,7 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Nuestros Servicios</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Radiofrecuencia</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#radiofrecuencia">Radiofrecuencia</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Maderoterapia</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Carboxiterapia</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Ultrasonido</a></li>
@@ -934,8 +1068,35 @@
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
 
+
+
+  <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet"/>
+<link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.2/moment.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+
+
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+<script src="assets/js/functions.js"></script>
+ <script type="text/javascript">
+	  $(function() {
+		  var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+			var yyyy = today.getFullYear();
+
+			today = mm + '/' + dd + '/' + yyyy;
+		$('#datetimepicker1').datetimepicker({
+			format: 'dd/mm/yyyy'
+		});
+		  $("#datetimepicker1").val(today);
+	  });
+	</script>
 
 </body>
 

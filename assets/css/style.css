@@ -186,7 +186,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #header .logo img {
-  max-height: 60px;
+  max-height: 70px;
+  max-width: 250px;
 }
 
 @media (max-width: 992px) {
@@ -444,6 +445,87 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
+/*--------------------------------------------------------------
+# radiofrecuencia Section
+--------------------------------------------------------------*/
+
+#radiofrecuencia {
+  width: 100%;
+  height: 90vh;
+  background: url("../img/hero-bg.jpg") top center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: -200px;
+}
+
+#radiofrecuencia .container {
+  position: relative;
+}
+
+#radiofrecuencia h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  text-transform: uppercase;
+  color: #2c4964;
+}
+
+#radiofrecuencia h2 {
+  color: #2c4964;
+  margin: 10px 0 0 0;
+  font-size: 24px;
+}
+
+#radiofrecuencia .btn-get-started {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 35px;
+  margin-top: 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: #1977cc;
+}
+
+#radiofrecuencia .btn-get-started:hover {
+  background: #3291e6;
+}
+
+@media (min-width: 1024px) {
+  #radiofrecuencia {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 992px) {
+  #radiofrecuencia {
+    margin-bottom: 0;
+    height: 100vh;
+  }
+  #radiofrecuencia .container {
+    padding-bottom: 63px;
+  }
+  #radiofrecuencia h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #radiofrecuencia h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-height: 500px) {
+  #radiofrecuencia {
+    height: auto;
+  }
+}
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
