@@ -17,15 +17,36 @@ else{
 	echo("No se conecto");
 }*/
 if( $conn ) {
-
-$username = $_POST['login'];
-
-$password  = $_POST['password'];
+$servicio = $_POST['servicio'];
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
+$fecha = $_POST['fecha'];
+$hora = $_POST['hora'];
+$telefono = $_POST['telefono'];
+$email = $_POST['email'];
 	
-	$query ="select count(id) as count from users where nombres = '$username' and password = '$password' and active =1";
-	//echo($query);
+//$hoy = getdate();
+	
+$a=date("Y-m-d H:i:s");
 
-	$resultado =mysqli_query($conn,$query );
+	if(isset($servicio)){
+	
+	$query = "Insert Into users (idrol,nombres,apellidos,telefono,email) values(4,'$nombre','$apellido','$telefono','$email')";
+	//echo($query);
+	
+		if($conn ->query($query) === TRUE){
+			$query = "";
+			$lastid = $conn->insert_id;
+
+			$query="Insert into citas (iduser,idservicio,fecha,hora,idestatus,createdate) values ('$lastid',$servicio,'$fecha','$hora',1,'$a')";
+
+			$conn->query($query);
+			header("location:../index.html");
+			echo('<script>window.location.href="./index.html";</script>');
+
+		}
+	}
+	/*$resultado =mysqli_query($conn,$query );
 	
 	
 	if ($resultado <> 0) {
@@ -43,8 +64,8 @@ $password  = $_POST['password'];
 		//echo("alert('No entro a la validacion)");
 		 echo "<script> location.href='../index.html'; </script>";
 		 exit;
-	}
-}
+	}*/
+
 
 }
 $conn -> close();
