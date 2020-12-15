@@ -1,12 +1,12 @@
 <?php
 
 session_start();
-
+/*
 if(isset($_SESSION['rol']))
 {
      echo "<script> location.href='../index.html'; </script>";
 	die();
-}
+}*/
  
 $servername = "localhost";
 $database = "skinny";
@@ -15,14 +15,20 @@ $password = "";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
-echo($conn);
+
 if( $conn ) {
     // echo "Conexión establecida.<br />";
+	
 }else{
      echo "Conexión no se pudo establecer.<br />";
      die( print_r( sqlsrv_errors(), true));
 }
-$query = "SELECT T0.id,T1.nombres,T1.apellidos,T2.descripcion as 'servicio',T0.fecha,T0.hora,T3.descripcion as 'status' FROM citas T0 inner join users T1 on T0.iduser = T1.id INNER JOIN servicios T2 on T0.idservicio = T2.id INNER JOIN estatus T3 on t0.idestatus = T3.id";
+
+$query = 	"SELECT citas.id, users.nombres, users.apellidos, servicios.descripcion AS 'servicio', citas.fecha, citas.hora, estatus.descripcion AS 'status' 
+			FROM citas
+			INNER JOIN users ON citas.iduser = users.id 
+			INNER JOIN servicios ON citas.idservicio = servicios.id 
+			INNER JOIN estatus ON citas.idestatus = estatus.id";
 
 $result = mysqli_query($conn,$query);
 
@@ -45,7 +51,10 @@ while($row = mysqli_fetch_array($result)){
 
 $conn->close();
  header('Content-Type: application/json');
-echo json_encode($table);
+ $fecha = $_POST['fecha'];
+
+	echo json_encode($fecha);
+//echo json_encode($table);
 
 //return json_encode($table);
 
