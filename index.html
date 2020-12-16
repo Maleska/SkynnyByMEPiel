@@ -28,6 +28,7 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/cambiaColor.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Medilab - v2.0.0
@@ -944,7 +945,7 @@
 					  <br>
 				 	<input type="text" class="form-control" id="apellido" placeholder="Apellidos" required>
 					  <br>
-					<input type="tel" class="form-control" id="telefono" placeholder="Teléfono" required>
+					<input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="telefono" placeholder="Teléfono" required>
 					  <br>
 					<input type="email" class="form-control" id="correo" placeholder="E-mail" required>
 				  </div>
@@ -965,16 +966,32 @@
 						<div class="form-group">
 							<span style="font-weight: bolder">Seleccione una fecha</span>
 							<div class="input-group date" id="datetimepicker1">
-								<input type="date" id="fecha" class="form-control" onChange="selectDate()" onSelect="selectDate()" />
+								<input type="date" id="fecha" class="form-control" onChange="selectDate()" />
 								<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
 								</span>
 							</div>
 						</div>
 					</div>
-					<div id="divTable" class="container-fluid" style="display: none">
+					<div id="divTable" class="container-fluid;verde" style="display: none; verde">
 					 <input type="text" id="hora" style="display: none">
-						 <table>
+						<select id="selHora" class="form-control ">
+							<option value="0"> -- Seleccione una opción -- </option>
+							<option value="9"> 9:00 a.m.</option>
+							<option value="10">10:00 a.m.</option>
+							<option value="11">11:00 a.m.</option>
+							<option value="12">12:00 a.m.</option>
+							<option value="13">1:00 p.m.</option>
+							<option value="14">2:00 p.m.</option>
+							<option value="15">3:00 p.m.</option>
+							<option value="16">4:00 p.m.</option>
+							<option value="17">5:00 p.m.</option>
+							<option value="18">6:00 p.m.</option>
+							<option value="19">7:00 p.m.</option>
+							<option value="20">8:00 p.m.</option>
+						
+						</select>
+						 <!--<table>
 							 <thead><tr><td><span style="font-weight: bolder">Favor de seleccionar la hora</span></td></tr></thead>
 						<tbody id="tbodyHours">
 							 <tr>
@@ -1062,7 +1079,7 @@
 								 
 							</tr>
 						</tbody>
-						</table>
+						</table>-->
 					 
 					</div>
 					 <!--<input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Seleccionar fecha" data-rule="minlen:4" data-msg="Please enter at least 4 chars">-->
@@ -1193,7 +1210,7 @@
 			var mm = String(today.getMonth() + 1); //January is 0!
 			var yyyy = today.getFullYear();
 
-			today = mm + '/' + dd + '/' + yyyy;
+			today = dd + '/' + mm + '/' + yyyy;
 		/*$('#datetimepicker1').datetimepicker({
 			format: 'dd/mm/yyyy'
 		});*/

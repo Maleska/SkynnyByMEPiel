@@ -27,7 +27,7 @@ $email = $_POST['email'];
 	
 //$hoy = getdate();
 	
-$a=date("Y-m-d H:i:s");
+$a=date("d/m/Y H:i:s");
 
 	if(isset($servicio)){
 	
@@ -41,8 +41,8 @@ $a=date("Y-m-d H:i:s");
 			$query="Insert into citas (iduser,idservicio,fecha,hora,idestatus,createdate) values ('$lastid',$servicio,'$fecha','$hora',1,'$a')";
 
 			$conn->query($query);
-			header("location:../index.html");
-			echo('<script>window.location.href="./index.html";</script>');
+			//header("location:../index.html");
+			//echo('<script>window.location.href="./index.html";</script>');
 
 		}
 	}
@@ -66,7 +66,8 @@ $a=date("Y-m-d H:i:s");
 		 exit;
 	}*/
 
-
+ 
 }
+echo "Registro guardado";
 $conn -> close();
 ?>
