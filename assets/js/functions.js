@@ -172,6 +172,72 @@ function selectDate(){
 		  } else {
 			x.style.display = "none";
 		  }
+	
+	var fecha = $("#fecha").val();
+	var split= fecha.split('-');
+	
+	
+	
+	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
+		
+		$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/getCitasByFechaOnlyHora.php',//aqui va tu direccion donde esta tu funcion php
+            data: {fecha:newfecha},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos= response;
+				 	var select = document.getElementById("selHora");
+		
+					 for (var i = 0; i < datos.length; i++) {
+                   
+                    var product = datos[i];
+							
+						 
+						 switch (product){
+							 case "9":
+								 select[0].style.backgroundColor='#ff3933';
+								 break;
+							 case "10":
+								 select[1].style.backgroundColor='#ff3933';
+								 break;
+							 case "11":
+								 select[2].style.backgroundColor='#ff3933';
+								 break;
+							 case "12":
+								 select[3].style.backgroundColor='#ff3933';
+								 break;
+							 case "13":
+								 select[4].style.backgroundColor='#ff3933';
+								 break;
+							 case "14":
+								 select[5].style.backgroundColor='#ff3933';
+								 break;
+							 case "15":
+								 select[6].style.backgroundColor='#ff3933';
+								 break;
+							 case "16":
+								 select[7].style.backgroundColor='#ff3933';
+								 break;
+							 case "17":
+								 select[8].style.backgroundColor='#ff3933';
+								 break;
+							 case "18":
+								 select[9].style.backgroundColor='#ff3933';
+								 break;
+							 case "19":
+								 select[10].style.backgroundColor='#ff3933';
+								 break;
+							  case "20":
+								 select[11].style.backgroundColor='#ff3933';
+								 break;
+								 
+										}
+					 }
+				
+                }
+           });
+	
 }
 
 function getHorasxDia(){
@@ -209,11 +275,15 @@ function agregarcita(){
 	var nombre = $("#nombre").val();
 	var apellido = $("#apellido").val();
 	var fecha = $("#fecha").val();
-	var hora = $("#hora").val();
+	//var hora = $("#hora").val();
 	var telefono =$("#telefono").val();
 	var email = $("#correo").val();
 	var e = document.getElementById("selServicio");
 	var valor = e.options[e.selectedIndex].value;
+	
+	var ee = document.getElementById("selHora");
+	var hora = ee.options[ee.selectedIndex].value;
+	
 	
 	if(nombre === ""){
 		alert("favor de agregar un nombre");
@@ -227,7 +297,7 @@ function agregarcita(){
 		alert("Favor de agregar una fecha");
 		return;
 	}
-	if(hora === ""){
+	if(hora === "0"){
 		alert("Favor de agregar una hora");
 		return;
 	}
@@ -240,13 +310,19 @@ function agregarcita(){
 		return;
 	}
 	
+	var split= fecha.split('-');
+	
+	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
+	
 	$.ajax({
             type:'POST', //aqui puede ser igual get
             url: 'php/addCita.php',//aqui va tu direccion donde esta tu funcion php
-            data: {nombre:nombre,apellido:apellido,fecha:fecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
-		 	dataType: 'JSON',
+            data: {nombre:nombre,apellido:apellido,fecha:newfecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
+		 	//dataType: 'JSON',
+			dataType: 'html',
             success:function(response){
                 //lo que devuelve tu archivo mifuncion.php
+				clearFill();
 				var datos = response;
                 var target = $("#tableCitas");
                 //target.empty();
@@ -262,5 +338,10 @@ function agregarcita(){
            });
 	
 }
-
+function clearFill(){
+	$("#nombre").val('');
+	$("#apellido").val('');
+	$("#telefono").val('');
+	$("#correo").val('');
+}
 
