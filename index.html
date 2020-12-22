@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <!--<link href="assets/img/favicon.png" rel="icon">-->
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -109,7 +109,14 @@
 
     </div>
   </header><!-- End Header -->
-
+	
+	<!-- ======= Hero Section ======= -->
+<section id="hero1" class="d-flex align-items-start">
+	
+	
+	</section>
+	
+	<!-- ======= Hero Section ======= -->
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container" id="divBienvenida">
@@ -118,34 +125,44 @@
       <h2>We are team of talanted designers making websites with Bootstrap</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
     </div>
-	  <br>
+	  
 	<div class="container" id="radiofrecuencia" style="display: none">
-		<br>
-		<br>
 	  <h1>Radiofrecuencia</h1>
+		<div id="divvideo" class="container">
+			<video controls
+				src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+				poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+				width="620">
+
+			Sorry, your browser doesn't support embedded videos,
+			but don't worry, you can <a href="https://archive.org/details/BigBuckBunny_124">download it</a>
+			and watch it with your favorite video player!
+
+			</video>
+		</div>
 	</div>
-	  <div class="container" id="Maderoterapia" style="display: none">
-	  <h1 style="margin-top: -140px">Maderoterapia</h1>
+	  <div class="container" id="Maderoterapia" style="margin-top: -650px; display: none">
+	  <h1>Maderoterapia</h1>
 	</div>
-	 <div class="container" id="Carboxiterapia" style="display: none">
+	 <div class="container" id="Carboxiterapia" style="margin-top: -650px;display: none">
 		<br>
 		<br>
-	  <h1 style="margin-top: -140px">Carboxiterapia</h1>
+	  <h1>Carboxiterapia</h1>
 	</div>
-	 <div class="container" id="Ultrasonido" style="display: none">
+	 <div class="container" id="Ultrasonido" style="margin-top: -650px;display: none">
 		<br>
 		<br>
-	  <h1 style="margin-top: -140px">Ultrasonido</h1>
+	  <h1>Ultrasonido</h1>
 	</div>
-	  <div class="container" id="Enzimas" style="display: none">
+	  <div class="container" id="Enzimas" style="margin-top: -650px;display: none">
 		<br>
 		<br>
-	  <h1 style="margin-top: -140px">Enzimas</h1>
+	  <h1>Enzimas</h1>
 	</div>
-	 <div class="container" id="Electrodos" style="display: none">
+	 <div class="container" id="Electrodos" style="margin-top: -650;display: none">
 		<br>
 		<br>
-	  <h1 style="margin-top: -140px">Electrodos</h1>
+	  <h1>Electrodos</h1>
 	</div>
 	  
   </section><!-- End Hero -->
@@ -834,9 +851,9 @@
         </div>
       </div>
 
-      <div>
+      <!--<div>
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div>
+      </div>-->
 
       <div class="container">
         <div class="row mt-5">
@@ -941,11 +958,11 @@
 			  </div>
 			  <div class="modal-body">
 				  <div class="container-fluid">
-				  	<input type="text" class="form-control" id="nombre" placeholder="Nombres" required>
+				  	<input type="text" class="form-control" id="nombre" placeholder="Nombres" style="text-transform: uppercase" required>
 					  <br>
-				 	<input type="text" class="form-control" id="apellido" placeholder="Apellidos" required>
+				 	<input type="text" class="form-control" id="apellido" placeholder="Apellidos" style="text-transform: uppercase" required>
 					  <br>
-					<input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="telefono" placeholder="Teléfono" required>
+					<input type="tel" class="form-control" maxlength="10"  id="telefono" placeholder="Teléfono" required>
 					  <br>
 					<input type="email" class="form-control" id="correo" placeholder="E-mail" required>
 				  </div>
@@ -973,9 +990,9 @@
 							</div>
 						</div>
 					</div>
-					<div id="divTable" class="container-fluid;verde" style="display: none; verde">
+					<div id="divTable" class="container-fluid;" style="display: none;">
 					 <input type="text" id="hora" style="display: none">
-						<select id="selHora" class="form-control ">
+						<select id="selHora" class="verde-option " onChange="selectTime()">
 							<option value="0"> -- Seleccione una opción -- </option>
 							<option value="9"> 9:00 a.m.</option>
 							<option value="10">10:00 a.m.</option>
@@ -1082,6 +1099,9 @@
 						</table>-->
 					 
 					</div>
+					 <div id="divAlerta" style="display: none">
+					 	<span class="rojo-option"><em>La hora seleccionada ya no esta disponible</em></span>
+					 </div>
 					 <!--<input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Seleccionar fecha" data-rule="minlen:4" data-msg="Please enter at least 4 chars">-->
 					 <!--<input type="datetime" name="datetime" class="form-control datepicker" id="datetime" placeholder="Seleccionar fecha" data-rule="minlen:4" >-->
 					 
@@ -1215,6 +1235,7 @@
 			format: 'dd/mm/yyyy'
 		});*/
 		  $("#datetimepicker1").val(today);
+		  //validSesionInicio();
 	  });
 	</script>
 

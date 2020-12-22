@@ -28,16 +28,27 @@ $password  = $_POST['password'];
 	$resultado =mysqli_query($conn,$query );
 	
 	
-	if ($resultado <> 0) {
+	if ($resultado !== false) {
 		
     $row= mysqli_fetch_assoc($resultado);
 
    //echo( $row['count']);
 		$cantidad =$row['count'];
 	if($cantidad == 1){
-		$_SESSION['rol'] ="recepcionista";
+		$_SESSION["rol"] ="recepcionista";
+		//session_regenerate_id();
+		$_COOKIE["valida"] = "activo";
 		//echo("alert('Si entro a la validacion')");
-		 echo "<script> location.href='../inicio.html'; </script>";
+		 echo "<script src='../assets/js/functions.js'></script>";
+		 echo "<script>document.cookie = 'recepcionista'; 
+		 var decodedCookie = decodeURIComponent(document.cookie);
+		 //alert(decodedCookie);
+		 //alert(document.cookie);
+		 //alert('No entro o quisas si');
+		 createCookie();
+		 </script>";
+		 echo "<script>  </script>";
+		 //echo "<script> location.href='../inicio.html'; </script>";
 		 exit;
 	}else{
 		//echo("alert('No entro a la validacion)");
