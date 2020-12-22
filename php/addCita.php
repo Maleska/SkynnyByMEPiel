@@ -27,11 +27,11 @@ $email = $_POST['email'];
 	
 //$hoy = getdate();
 	
-$a=date("d/m/Y H:i:s");
+$a=getdate("d/m/Y H:i:s");
 
 	if(isset($servicio)){
 	
-	$query = "Insert Into users (idrol,nombres,apellidos,telefono,email) values(4,'$nombre','$apellido','$telefono','$email')";
+	$query = "Insert Into users (idrol,nombres,apellidos,telefono,email) values(2,'$nombre','$apellido','$telefono','$email')";
 	//echo($query);
 	
 		if($conn ->query($query) === TRUE){

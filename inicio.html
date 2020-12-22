@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!--<link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">-->
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -31,11 +31,7 @@
 	
 	<link href="assets/css/jquery.dataTables.min.css" rel="stylesheet">
 	
-	<script type="text/javascript">
-			$(document).ready( function () {
-				$('#tableCitas').DataTable();
-			});
-	</script>
+
 
   <!-- =======================================================
   * Template Name: Medilab - v2.0.0
@@ -51,15 +47,15 @@
 	<br>
   <div id="topbar" style="margin-top: 10px" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex">
-      <div class="contact-info mr-auto"><em class="icofont-envelope"></em> <a href="mailto:contact@example.com">contact@example.com</a> <em class="icofont-phone"></em> +1 5589 55488 55 <em class="icofont-google-map"></em> A108 Adam Street, NY 
-		<p><em class="icofont-clock-time">Lunes a viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm</em></p>
+      <div class="contact-info mr-auto"><!--<em class="icofont-envelope"></em> <a href="mailto:contact@example.com">contact@example.com</a> <em class="icofont-phone"></em> +1 5589 55488 55 <em class="icofont-google-map"></em> A108 Adam Street, NY 
+		<p>--><em class="icofont-clock-time"></em>Lunes a viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm
 		</div>
       <div class="social-links">
         <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
         <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
         <a href="#" class="skype"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></i></a>
+        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
       </div>
     </div>
   </div>
@@ -68,12 +64,29 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="index.html"><img src="assets/img/MEPiel/Logo.jpg" style="width: 250px;height: 60px"> </img> </a></h1>
+      <h1 class="logo mr-auto"><a href="index.html"><img src="assets/img/MEPiel/Logo.jpg" style="width: 250px;height: 60px"/></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
+		  <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"></li>
+          <!--<li><a href="#about">Mensajes</a></li>-->
+         <!--<li class="drop-down"><a href="#">Servicios</a>
+			<ul>
+                  <li><a href="#radiofrecuencia" onClick="showsections(1)">Radiofrecuencia</a></li>
+                  <li><a href="#Maderoterapia" onClick="showsections(2)">Maderoterapia</a></li>
+                  <li><a href="#Carboxiterapia" onClick="showsections(3)">Carboxiterapia</a></li>
+                  <li><a href="#Ultrasonido" onClick="showsections(4)">Ultrasonido</a></li>
+                  <li><a href="#Enzimas" onClick="showsections(5)">Enzimas</a></li>
+				  <li><a href="#Electrodos" onClick="showsections(6)">Electrodos</a></li>
+                </ul>
+			</li>-->
+        </ul>
+      </nav><!-- .nav-menu -->
+	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalVideos">Subir video</a>
       <a href="#appointment" class="appointment-btn scrollto" style="display: none">Haz una cita</a>
-	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#exampleModal" >Cerrar Sesión</a>
+	  <a href="#appointment" class="appointment-btn scrollto" onClick="destroyCookie()" >Cerrar Sesión</a>
 	  
 
     </div>
@@ -81,11 +94,13 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-lg-start">
-    <div class="container" id="divBienvenida">
+    <div class="container" id="divBienvenida" style="margin-top: 90px">
 		
       <h1>Citas agendadas</h1>
-		
-		<table class="table-hover form-clacla" id="tableCitas" style="width: auto">
+		<br>
+		<input type="date" class="form-control-sm" id="txbdate" onChange="getCitasByFecha()">
+		<br>
+		<table id="tableCitas" class="display" style="width:100%">
 			<thead>
 				<tr>
 					<th>Nombre</th>
@@ -95,12 +110,14 @@
 					<th>modificaciones</th>
 				</tr>
 			</thead>
+			<tbody id="tbodyCitas"></tbody>
 		</table>
 		
       <!--<h2>We are team of talanted designers making websites with Bootstrap</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
     </div>
   </section><!-- End Hero -->
+	  
   <main id="main">
 
     <!-- ======= Why Us Section ======= -->
@@ -319,7 +336,7 @@
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+        <!--<form action="forms/appointment.php" method="post" role="form" class="php-email-form">
           <div class="form-row">
             <div class="col-md-4 form-group">
               <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
@@ -369,7 +386,7 @@
             <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
           </div>
           <div class="text-center"><button type="submit">Make an Appointment</button></div>
-        </form>
+        </form>-->
 
       </div>
     </section><!-- End Appointment Section -->
@@ -786,9 +803,9 @@
         </div>
       </div>
 
-      <div>
+      <!--<div>
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div>
+      </div>-->
 
       <div class="container">
         <div class="row mt-5">
@@ -854,21 +871,58 @@
     </section><!-- End Contact Section -->
 
 	 <!-- Modal -->
-	  <form action="php/validalogin.php" method="post">
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
 			  </div>
 			  <div class="modal-body">
-				<label>Usuario</label>
-				  <p><input type="text" id="login" name="login" class="form-control" required></p>
-				 <label>Contraseña</label>
-				  <p><input type="password" id="txbpass" name="password" class="form-control" required></p>
+				<label>Nombre</label>
+				  <br>
+				 <label>Apellido</label>
+				  <br>
+				  <label>Fecha</label>
+				  <br>
+				  <label>Hora</label>
+				  <br>
+				  <label>Estatus</label>
+				  <br>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				<button type="submit" class="btn btn-primary">Iniciar sesión</button>
+			  </div>
+			</div>
+		  </div>
+		</div>	  
+	  
+	  <!-- Modal -->
+		<div class="modal fade" id="ModalVideos" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel">Subir videos</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<label>seleccione una opción</label>
+				  <p><select class="form-control" id="selServicio" onChange="" style="height: auto;width: auto">
+					  <option value="0"> -- SELECCIONE UNA OPCIÓN -- </option>
+					  <option value="1">RADIOFRECUENCIA</option>
+					  <option value="2">MADEROTERAPIA</option>
+					  <option value="3">CARBOXITERAPIA</option>
+					  <option value="4">ULTRASONIDO</option>
+					  <option value="5">ENZIMAS</option>
+					  <option value="6">ELECTRODOS</option>
+					  </select></p>
+				 <label>Seleccione un video</label>
+				  <p><input type="file" id="files" class="form-control" value="..."> </p>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -877,7 +931,9 @@
 			</div>
 		  </div>
 		</div>
-		  </form>
+	  
+	  
+	  
 	  
 	  
   </main><!-- End #main -->
@@ -976,6 +1032,25 @@
 <script src="assets/js/functions.js"></script>
 <script src="assets/js/jquery.dataTables.min.js"></script>
 
+	<script type="text/javascript">
+			$(document).ready( function () {
+				$('#tableCitas').DataTable();
+				//validSesionInicio();
+				 var today = new Date();
+			var dd = String(today.getDate());
+			var mm = String(today.getMonth() + 1); //January is 0!
+			var yyyy = today.getFullYear();
+
+			//today = dd + '-' + mm + '-' + yyyy;
+				var now = yyyy +'-' + mm +'-' + dd;
+				document.getElementById("txbdate").valueAsDate = new Date();
+		/*$('#datetimepicker1').datetimepicker({
+			format: 'dd/mm/yyyy'
+		});*/
+		 // $("#txbdate").val(today);
+				getCitasByFecha();
+			});
+	</script>
 </body>
 
 </html>

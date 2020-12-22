@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <!--<link href="assets/img/favicon.png" rel="icon">-->
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -834,9 +834,9 @@
         </div>
       </div>
 
-      <div>
+      <!--<div>
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div>
+      </div>-->
 
       <div class="container">
         <div class="row mt-5">
@@ -945,7 +945,7 @@
 					  <br>
 				 	<input type="text" class="form-control" id="apellido" placeholder="Apellidos" required>
 					  <br>
-					<input type="tel" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" id="telefono" placeholder="Teléfono" required>
+					<input type="tel" class="form-control" maxlength="10"  id="telefono" placeholder="Teléfono" required>
 					  <br>
 					<input type="email" class="form-control" id="correo" placeholder="E-mail" required>
 				  </div>
@@ -973,9 +973,9 @@
 							</div>
 						</div>
 					</div>
-					<div id="divTable" class="container-fluid;verde" style="display: none; verde">
+					<div id="divTable" class="container-fluid;" style="display: none;">
 					 <input type="text" id="hora" style="display: none">
-						<select id="selHora" class="form-control ">
+						<select id="selHora" class="verde-option " onChange="selectTime()">
 							<option value="0"> -- Seleccione una opción -- </option>
 							<option value="9"> 9:00 a.m.</option>
 							<option value="10">10:00 a.m.</option>
@@ -1082,6 +1082,9 @@
 						</table>-->
 					 
 					</div>
+					 <div id="divAlerta" style="display: none">
+					 	<span class="rojo-option"><em>La hora seleccionada ya no esta disponible</em></span>
+					 </div>
 					 <!--<input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Seleccionar fecha" data-rule="minlen:4" data-msg="Please enter at least 4 chars">-->
 					 <!--<input type="datetime" name="datetime" class="form-control datepicker" id="datetime" placeholder="Seleccionar fecha" data-rule="minlen:4" >-->
 					 
@@ -1215,6 +1218,7 @@
 			format: 'dd/mm/yyyy'
 		});*/
 		  $("#datetimepicker1").val(today);
+		  //validSesionInicio();
 	  });
 	</script>
 

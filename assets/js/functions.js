@@ -1,4 +1,6 @@
 // JavaScript Document
+var listHoraNo =[];
+var ban=true;
 function showsections (id){
 	
 	switch(id){
@@ -167,11 +169,12 @@ function changeCombo(){
 
 function selectDate(){
 	var x = document.getElementById("divTable");
-		  if (x.style.display === "none") {
+	x.style.display = "block";
+		  /*if (x.style.display === "none") {
 			x.style.display = "block";
 		  } else {
 			x.style.display = "none";
-		  }
+		  }*/
 	
 	var fecha = $("#fecha").val();
 	var split= fecha.split('-');
@@ -188,51 +191,60 @@ function selectDate(){
             success:function(response){
                		var datos= response;
 				 	var select = document.getElementById("selHora");
-		
+						//$("selHora:option").css{"background", "#33ff52"}
+				        $('option').css('background', '#33ff52');
+						select.className ='verde-option';
+				listHoraNo = [];
 					 for (var i = 0; i < datos.length; i++) {
                    
                     var product = datos[i];
 							
+						
 						 
+					listHoraNo.push(product);	 
 						 switch (product){
 							 case "9":
-								 select[0].style.backgroundColor='#ff3933';
-								 break;
-							 case "10":
 								 select[1].style.backgroundColor='#ff3933';
 								 break;
-							 case "11":
+							 case "10":
 								 select[2].style.backgroundColor='#ff3933';
 								 break;
-							 case "12":
+							 case "11":
 								 select[3].style.backgroundColor='#ff3933';
 								 break;
-							 case "13":
+							 case "12":
 								 select[4].style.backgroundColor='#ff3933';
 								 break;
-							 case "14":
+							 case "13":
 								 select[5].style.backgroundColor='#ff3933';
 								 break;
-							 case "15":
+							 case "14":
 								 select[6].style.backgroundColor='#ff3933';
 								 break;
-							 case "16":
+							 case "15":
 								 select[7].style.backgroundColor='#ff3933';
 								 break;
-							 case "17":
+							 case "16":
 								 select[8].style.backgroundColor='#ff3933';
 								 break;
-							 case "18":
+							 case "17":
 								 select[9].style.backgroundColor='#ff3933';
 								 break;
-							 case "19":
+							 case "18":
 								 select[10].style.backgroundColor='#ff3933';
 								 break;
-							  case "20":
+							 case "19":
 								 select[11].style.backgroundColor='#ff3933';
 								 break;
+							  case "20":
+								 select[12].style.backgroundColor='#ff3933';
+								 break;
 								 
-										}
+						}
+						 
+						 
+						 
+						 
 					 }
 				
                 }
@@ -265,8 +277,19 @@ function getHorasxDia(){
 	
 }
 
-function selectTime(hora){
-	$("#hora").val(hora);
+function selectTime(){
+	var select = document.getElementById("selHora");
+	var hora = select.options[select.selectedIndex].value;
+	/*var found = listHoraNo.find(function (element) { 
+        return element = hora; 
+    }); */
+	 if(listHoraNo.includes(hora)){
+		 ban =false;
+		 document.getElementById("divAlerta").style.display = "inline";
+	 }else{
+		ban =true;
+		 document.getElementById("divAlerta").style.display = "none"; 
+	 }
 }
 
 function agregarcita(){
@@ -314,6 +337,8 @@ function agregarcita(){
 	
 	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
 	
+	if(ban === true){
+	
 	$.ajax({
             type:'POST', //aqui puede ser igual get
             url: 'php/addCita.php',//aqui va tu direccion donde esta tu funcion php
@@ -336,8 +361,12 @@ function agregarcita(){
 					 }
                 }
            });
-	
+	}else{
+		 ban =false;
+		 document.getElementById("divAlerta").style.display = "inline";
+	}
 }
+
 function clearFill(){
 	$("#nombre").val('');
 	$("#apellido").val('');
@@ -345,3 +374,110 @@ function clearFill(){
 	$("#correo").val('');
 }
 
+function validSesionInicio(){
+	var currentDate = new Date();
+	var day = currentDate.getDate();
+	var month = currentDate.getMonth() + 1;
+	var year = currentDate.getFullYear();
+
+	var fecha= day +"/"+month +"/"+year;
+
+	var ca = document.cookie.split(';');
+	var cal = localStorage.name;
+	
+	if(cal === undefined){
+		//if()
+		location.href='index.html';
+		
+	/*$.ajax({
+            type:'POST', //aqui puede ser igual get
+            url: 'php/validSesion.php',//aqui va tu direccion donde esta tu funcion php
+            data: {fecha:fecha},//aqui tus datos
+		 	//dataType: 'JSON',
+			dataType: 'html',
+            success:function(response){
+                //lo que devuelve tu archivo mifuncion.php
+				var datos = response;
+				if(datos !== ""){
+					//window.location.href = "../index.html";
+				}
+			}
+           });*/
+
+	}
+
+}
+
+function createCookie(){
+	"use strict";
+	//document.cookie = "user=John"; 
+	 localStorage.setItem("name", "recepcionista");
+	//alert(document.cookie);
+	location.href='../inicio.html';
+}
+
+function destroyCookie(){
+	delete localStorage.name;
+	location.href='index.html';
+}
+
+function getCitasByFecha(){
+	
+	var fecha = document.getElementById("txbdate").value;
+	
+	var split= fecha.split('-');
+	
+	
+	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
+	 var target = $("#tableCitas");
+	
+	$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/getCitasByFecha.php',//aqui va tu direccion donde esta tu funcion php
+            data: {fecha:newfecha},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 	
+                	target.empty();
+					target.append("<thead>"+
+				    "<tr>"+
+					"<th>Nombre</th>"+
+					"<th>Apellido</th>"+
+					"<th>Fecha</th>"+
+					"<th>Hora</th>"+
+					"<th>modificaciones</th>"+
+						"</tr>"+
+					"</thead>");
+              		target.append("<tbody>");
+                for (var i = 0; i < datos.length; i++) {
+                   
+                    var product = datos[i];
+					
+                    /*target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+ product['servicio'] +"</td><td>"+product['fecha']+"</td><td>"+product['hora']+"</td><td>"+ product['status'] +"</td></tr>");*/
+					target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+product['fecha']+"</td><td>"+ product['hora'] +"</td><td><input type='button' class='appointment-btn scrollto' value='modificar' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
+					/*target.append("<tr><td>" + product['nombre'] +"</td><td>" + product['apellido'] +"</td><td>" +product['servicio'] + "</td><td>" + product['fecha'] +"</td><td>" + product['hora'] + "</td><td>" + product['status'] +"</td></tr>");*/
+					}
+					target.append("</tbody>");
+                }
+		
+				
+           });
+	
+	return target;
+			/*var table = $('#tableCitas').DataTable();
+		
+				setInterval( function () {
+					table.ajax.reload();
+				}, 30000);*/
+	//$('#tbodyCitas').DataTable();
+	
+}
+
+function cargarInfo(id){
+	
+}
+
+function uloadFile(){
+	var rchivs = document.getElementById('files').file[0];
+}
