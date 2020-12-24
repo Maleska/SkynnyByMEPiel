@@ -48,14 +48,14 @@
   <div id="topbar" style="margin-top: 10px" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex">
       <div class="contact-info mr-auto"><!--<em class="icofont-envelope"></em> <a href="mailto:contact@example.com">contact@example.com</a> <em class="icofont-phone"></em> +1 5589 55488 55 <em class="icofont-google-map"></em> A108 Adam Street, NY 
-		<p>--><em class="icofont-clock-time"></em>Lunes a viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm
+		<p>--><em class="icofont-clock-time"></em>Lunes a Viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm
 		</div>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="#" class="twitter" hidden=""><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
         <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="skype"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+        <a href="#" class="skype" hidden=""><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin" hidden=""><i class="icofont-linkedin"></i></a>
       </div>
     </div>
   </div>
@@ -84,9 +84,9 @@
 			</li>-->
         </ul>
       </nav><!-- .nav-menu -->
-	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalVideos">Subir video</a>
+	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalVideos" hidden="">Subir video</a>
       <a href="#appointment" class="appointment-btn scrollto" style="display: none">Haz una cita</a>
-	  <a href="#appointment" class="appointment-btn scrollto" onClick="destroyCookie()" >Cerrar Sesión</a>
+	  <a href="#appointment" class="appointment-btn scrollto" onClick="destroyCookie()" >CERRAR SESION</a>
 	  
 
     </div>
@@ -96,18 +96,19 @@
   <section id="hero" class="d-flex align-items-lg-start">
     <div class="container" id="divBienvenida" style="margin-top: 90px">
 		
-      <h1>Citas agendadas</h1>
+      <h1>CITAS AGENDADAS</h1>
 		<br>
 		<input type="date" class="form-control-sm" id="txbdate" onChange="getCitasByFecha()">
 		<br>
-		<table id="tableCitas" class="display" style="width:100%">
+		<br>
+		<table id="tableCitas" class="display" style="width:100%;background-color: white">
 			<thead>
 				<tr>
-					<th>Nombre</th>
-					<th>Apellido</th>
-					<th>Fecha</th>
-					<th>Hora</th>
-					<th>modificaciones</th>
+					<th>HORA</th>
+					<th>NOMBRE</th>
+					<th>APELLIDOS</th>
+					<th>TELEFONOS</th>
+					<th>E-MAIL</th>
 				</tr>
 			</thead>
 			<tbody id="tbodyCitas"></tbody>
@@ -881,20 +882,34 @@
 				</button>
 			  </div>
 			  <div class="modal-body">
-				<label>Nombre</label>
+				<label style="font-weight: bold">Nombre</label>
 				  <br>
-				 <label>Apellido</label>
+				  <span id="lblNombre"></span>
 				  <br>
-				  <label>Fecha</label>
+				  <label style="font-weight: bold">Apellido</label>
 				  <br>
-				  <label>Hora</label>
+				  <span id="lblApellido"></span>
 				  <br>
-				  <label>Estatus</label>
+				 <label style="font-weight: bold">Servicio</label>
+				  <br>
+				  <span id="lblServicio"></span>
+				  <br>
+				  <label style="font-weight: bold">Fecha</label>
+				  <br>
+				  <span id="lblFecha"></span>
+				  <br>
+				  <label style="font-weight: bold">Hora</label>
+				  <br>
+				  <span id="lblHora>"></span>
+				  <br>
+				  <label style="font-weight: bold">Estatus</label>
+				  
+				  <label id="lblid" hidden=""></label>
 				  <br>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary">Iniciar sesión</button>
+				<button type="submit" class="btn btn-primary">Actualizar</button>
 			  </div>
 			</div>
 		  </div>
@@ -1034,8 +1049,8 @@
 
 	<script type="text/javascript">
 			$(document).ready( function () {
-				$('#tableCitas').DataTable();
-				//validSesionInicio();
+				//$('#tableCitas').DataTable();
+				validSesionInicio();
 				 var today = new Date();
 			var dd = String(today.getDate());
 			var mm = String(today.getMonth() + 1); //January is 0!
