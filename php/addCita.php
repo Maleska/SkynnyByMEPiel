@@ -38,7 +38,7 @@ $a=getdate("d/m/Y H:i:s");
 			$query = "";
 			$lastid = $conn->insert_id;
 
-			$query="Insert into citas (iduser,idservicio,fecha,hora,idestatus,createdate) values ('$lastid',$servicio,'$fecha','$hora',1,'$a')";
+			$query="Insert into citas (iduser,idservicio,fecha,hora,idestatus) values ('$lastid',$servicio,'$fecha','$hora',1)";
 
 			$conn->query($query);
 			//header("location:../index.html");

@@ -1,5 +1,6 @@
 // JavaScript Document
 var listHoraNo =[];
+var listaServicios =[];
 var ban=true;
 function showsections (id){
 	
@@ -342,7 +343,7 @@ function agregarcita(){
 	$.ajax({
             type:'POST', //aqui puede ser igual get
             url: 'php/addCita.php',//aqui va tu direccion donde esta tu funcion php
-            data: {nombre:nombre,apellido:apellido,fecha:newfecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
+            data: {nombre:nombre.toUpperCase(),apellido:apellido.toUpperCase(),fecha:newfecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
 		 	//dataType: 'JSON',
 			dataType: 'html',
             success:function(response){
@@ -357,7 +358,23 @@ function agregarcita(){
                     var product = datos[i];
 							/*if(product['titulo'] !== ""){
                     target.append("<tr><td>"+ product['id'] +"</td><td>"+ product['titulo'] +"</td><td>"+ product['tipo'] +"</td><td><img src=\"images/ic_edit.png\" style=\"height: 15px;width: 15px\"></td><td><img src=\"images/if_Delete.png\" style=\"height: 15px;width: 15px\"></td></tr>");
+					
 							}*/
+					
+					
+					//$('#selServicio option[value="0"]').attr("selected",true);
+					$('#selServicio').val("0");
+					//$('#selHora option[value="0"]').attr("selected",true);
+					$("#selHora").val("0");
+					var x = document.getElementById("divCalendario");
+
+					x.style.display = "none";
+					var xx = document.getElementById("divTable");
+						xx.style.display = "none";
+						  
+					document.getElementById("fecha").valueAsDate = new Date();
+						$("#btnCerrarModalCita").click();
+					alert("Cita agendada");
 					 }
                 }
            });
@@ -429,7 +446,7 @@ function getCitasByFecha(){
 	
 	
 	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
-	 var target = $("#tableCitas");
+	 var target = $("#tbodyCitas");
 	
 	$.ajax({
             type:'post', //aqui puede ser igual get
@@ -440,7 +457,7 @@ function getCitasByFecha(){
                		var datos =response;
 				 	
                 	target.empty();
-					target.append("<thead>"+
+					/*target.append("<thead>"+
 				    "<tr>"+
 					"<th>Nombre</th>"+
 					"<th>Apellido</th>"+
@@ -448,17 +465,17 @@ function getCitasByFecha(){
 					"<th>Hora</th>"+
 					"<th>modificaciones</th>"+
 						"</tr>"+
-					"</thead>");
-              		target.append("<tbody>");
+					"</thead>");*/
+              		//target.append("<tbody>");
                 for (var i = 0; i < datos.length; i++) {
                    
                     var product = datos[i];
 					
                     /*target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+ product['servicio'] +"</td><td>"+product['fecha']+"</td><td>"+product['hora']+"</td><td>"+ product['status'] +"</td></tr>");*/
-					target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+product['fecha']+"</td><td>"+ product['hora'] +"</td><td><input type='button' class='appointment-btn scrollto' value='modificar' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
+					target.append("<tr><td>"+ product['hora'] +":00</td><td>"+ product['nombre'] +"</td><td>"+product['apellido']+"</td><td>"+ product['telefono'] +"</td>"+product['email']+"<td></td><td><input type='button' class='appointment-btn scrollto' value='modificar' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
 					/*target.append("<tr><td>" + product['nombre'] +"</td><td>" + product['apellido'] +"</td><td>" +product['servicio'] + "</td><td>" + product['fecha'] +"</td><td>" + product['hora'] + "</td><td>" + product['status'] +"</td></tr>");*/
 					}
-					target.append("</tbody>");
+					//target.append("</tbody>");
                 }
 		
 				
@@ -475,7 +492,59 @@ function getCitasByFecha(){
 }
 
 function cargarInfo(id){
-	
+	$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/getCitasById.php',//aqui va tu direccion donde esta tu funcion php
+            data: {citaid:id},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 	
+                	
+               // for (var i = 0; i < datos.length; i++) {
+                   
+                    //var product = datos[i];
+					
+					document.getElementById('lblNombre').innerText = datos['nombres'] ;
+					document.getElementById('lblApellido').innerText = datos['apellidos'] ;
+					document.getElementById('lblServicio').innerText = datos['servicio'] ;
+					document.getElementById('lblFecha').innerText = datos['fecha'] ;
+					document.getElementById('lblHora').innerText = datos['hora'] ;
+					//document.getElementById('lblNombre').innerText = product['nombres'] ;
+					document.getElementById('lblid').innerText=datos['id'];
+				
+				//	}
+                }
+		
+				
+           });
+}
+
+function getServicios(){
+	var servicios = document.getElementById("selServicio");
+	//var valor = e.options[e.selectedIndex].value;
+	$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/getServicios.php',//aqui va tu direccion donde esta tu funcion php
+            //data: {citaid:id},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 	
+                	//servicios.append('<option value=\'0\'> -- SELECCIONE UNA OPCIÓN -- </option>');
+				listaServicios.push("<option value=\'0\'> -- SELECCIONE UNA OPCIÓN -- </option>");
+               for (var i = 0; i < datos.length; i++) {
+                   
+                    var product = datos[i];
+					
+						listaServicios.push("<option value='"+product['id']+"'>"+product['descripcion']+"</option>");
+				
+					}
+				 servicios.innerHTML = listaServicios;
+                }
+		
+				
+           });	
 }
 
 function uloadFile(){

@@ -45,14 +45,14 @@
   <div id="topbar" style="margin-top: 10px" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex">
       <div class="contact-info mr-auto"><!--<em class="icofont-envelope"></em> <a href="mailto:contact@example.com">contact@example.com</a> <em class="icofont-phone"></em> +1 5589 55488 55 <em class="icofont-google-map"></em> A108 Adam Street, NY 
-		<p>--><em class="icofont-clock-time">Lunes a viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm</em><!--</p>-->
+		<p>--><em class="icofont-clock-time">Lunes a Viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm</em><!--</p>-->
 		</div>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="icofont-twitter"></i></a>
+        <a href="#" class="twitter" hidden=""><i class="icofont-twitter"></i></a>
         <a href="#" class="facebook"><i class="icofont-facebook"></i></a>
         <a href="#" class="instagram"><i class="icofont-instagram"></i></a>
-        <a href="#" class="skype"><i class="icofont-skype"></i></a>
-        <a href="#" class="linkedin"><i class="icofont-linkedin"></i></a>
+        <a href="#" class="skype" hidden=""><i class="icofont-skype"></i></a>
+        <a href="#" class="linkedin" hidden=""><i class="icofont-linkedin"></i></a>
       </div>
     </div>
   </div>
@@ -67,9 +67,9 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="index.html">Inicio</a></li>
+          <li class="active"><a href="#">INICIO</a></li>
           <!--<li><a href="#about">Nosotros</a></li>-->
-         <li class="drop-down"><a href="#">Servicios</a>
+         <li class="drop-down"><a href="#">SERVICIOS</a>
 			<ul>
                   <li><a href="#radiofrecuencia" onClick="showsections(1)">Radiofrecuencia</a></li>
                   <li><a href="#Maderoterapia" onClick="showsections(2)">Maderoterapia</a></li>
@@ -98,13 +98,13 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li>-->
-          <li><a href="#contact">Contactanos</a></li>
+          <!--<li><a href="#contact">Contactanos</a></li>-->
 
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalCitas">Haz una cita</a>
-	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#exampleModal">Iniciar Sesión</a>
+      <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalCitas">HAZ UNA CITA</a>
+	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#exampleModal">INICIAR SESION</a>
 	  
 
     </div>
@@ -118,8 +118,8 @@
 	
 	<!-- ======= Hero Section ======= -->
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-    <div class="container" id="divBienvenida">
+  <section id="hero" class="d-flex align-items-start">
+    <div class="container align-items-center" id="divBienvenida" >
 		<h1>Bienvenido a Skinny by M.E.Piel</h1>
       <!--<h1>Welcome to Medilab</h1>
       <h2>We are team of talanted designers making websites with Bootstrap</h2>
@@ -127,6 +127,7 @@
     </div>
 	  
 	<div class="container" id="radiofrecuencia" style="display: none">
+		<br>
 	  <h1>Radiofrecuencia</h1>
 		<div id="divvideo" class="container">
 			<video controls
@@ -141,25 +142,25 @@
 			</video>
 		</div>
 	</div>
-	  <div class="container" id="Maderoterapia" style="margin-top: -650px; display: none">
+	  <div class="container" id="Maderoterapia" style="display: none">
+		  <br>
 	  <h1>Maderoterapia</h1>
 	</div>
-	 <div class="container" id="Carboxiterapia" style="margin-top: -650px;display: none">
-		<br>
+	 <div class="container" id="Carboxiterapia" style="display: none">
 		<br>
 	  <h1>Carboxiterapia</h1>
 	</div>
-	 <div class="container" id="Ultrasonido" style="margin-top: -650px;display: none">
+	 <div class="container" id="Ultrasonido" style="display: none">
 		<br>
 		<br>
 	  <h1>Ultrasonido</h1>
 	</div>
-	  <div class="container" id="Enzimas" style="margin-top: -650px;display: none">
+	  <div class="container" id="Enzimas" style="display: none">
 		<br>
 		<br>
 	  <h1>Enzimas</h1>
 	</div>
-	 <div class="container" id="Electrodos" style="margin-top: -650;display: none">
+	 <div class="container" id="Electrodos" style="display: none">
 		<br>
 		<br>
 	  <h1>Electrodos</h1>
@@ -951,7 +952,7 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabelnam">Hacer una cita</h5>
+				<h5 class="modal-title" id="exampleModalLabelnam">HACER CITA</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
@@ -962,26 +963,26 @@
 					  <br>
 				 	<input type="text" class="form-control" id="apellido" placeholder="Apellidos" style="text-transform: uppercase" required>
 					  <br>
-					<input type="tel" class="form-control" maxlength="10"  id="telefono" placeholder="Teléfono" required>
+					<input type="tel" class="form-control" maxlength="10"  id="telefono" placeholder="TELEFONO" required>
 					  <br>
 					<input type="email" class="form-control" id="correo" placeholder="E-mail" required>
 				  </div>
 				  <div class="container-fluid">
-				<label><span style="font-weight: bolder"> Seleccionar servicio </span> </label>
+				<label><span style="font-weight: bolder"> SELECCIONAR SERVICIO </span> </label>
 				  <p><select class="form-control" id="selServicio" onChange="changeCombo()" style="height: auto;width: auto">
-					  <option value="0"> -- SELECCIONE UNA OPCIÓN -- </option>
+					 <!-- <option value="0"> -- SELECCIONE UNA OPCIÓN -- </option>
 					  <option value="1">RADIOFRECUENCIA</option>
 					  <option value="2">MADEROTERAPIA</option>
 					  <option value="3">CARBOXITERAPIA</option>
 					  <option value="4">ULTRASONIDO</option>
 					  <option value="5">ENZIMAS</option>
-					  <option value="6">ELECTRODOS</option>
+					  <option value="6">ELECTRODOS</option>-->
 					  </select></p>
 				  </div>
 				 <div id="divCalendario" class="container-fluid" style="display: none">
 					<div class="col-sm-6">
 						<div class="form-group">
-							<span style="font-weight: bolder">Seleccione una fecha</span>
+							<span style="font-weight: bolder">SELECCIONAR FECHA</span>
 							<div class="input-group date" id="datetimepicker1">
 								<input type="date" id="fecha" class="form-control" onChange="selectDate()" />
 								<span class="input-group-addon">
@@ -993,7 +994,7 @@
 					<div id="divTable" class="container-fluid;" style="display: none;">
 					 <input type="text" id="hora" style="display: none">
 						<select id="selHora" class="verde-option " onChange="selectTime()">
-							<option value="0"> -- Seleccione una opción -- </option>
+							<option value="0"> -- SELECCIONE UNA OPCION -- </option>
 							<option value="9"> 9:00 a.m.</option>
 							<option value="10">10:00 a.m.</option>
 							<option value="11">11:00 a.m.</option>
@@ -1108,7 +1109,7 @@
 				  </div>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>
 				<button type="button" onClick="agregarcita()" class="btn btn-primary">Hacer cita</button>
 			  </div>
 			</div>
@@ -1235,6 +1236,8 @@
 			format: 'dd/mm/yyyy'
 		});*/
 		  $("#datetimepicker1").val(today);
+		  document.getElementById("fecha").valueAsDate = new Date();
+		  getServicios();
 		  //validSesionInicio();
 	  });
 	</script>
