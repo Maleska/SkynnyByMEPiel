@@ -22,12 +22,13 @@
 	$fecha = $_POST['fecha'];
 
 	$query = 
-		"SELECT citas.id, users.nombres, users.apellidos, servicios.descripcion AS 'servicio', citas.fecha, citas.hora, estatus.descripcion AS 'status' 
+		"SELECT citas.id, users.nombres, users.apellidos, users.telefono, users.email, servicios.descripcion AS 'servicio', citas.fecha, citas.hora, estatus.descripcion AS 'status' 
 		FROM citas
 		INNER JOIN users ON citas.iduser = users.id 
 		INNER JOIN servicios ON citas.idservicio = servicios.id 
 		INNER JOIN estatus ON citas.idestatus = estatus.id
-		WHERE citas.fecha = '$fecha'";
+		WHERE citas.fecha = '$fecha'
+		ORDER BY hora";
 
 	$result = mysqli_query($conn,$query);
 
@@ -41,6 +42,8 @@
 			'id' => $row['id'],
 			'nombre' => $row['nombres'],
 			'apellido' => $row['apellidos'],
+			'email' => $row['email'],
+			'telefono' => $row['telefono'],
 			'servicio' => $row['servicio'],
 			'fecha' => $row['fecha'],
 			'hora' => $row['hora'],
