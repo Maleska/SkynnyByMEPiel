@@ -22,7 +22,7 @@
 	$fecha = $_POST['fecha'];
 
 	$query = 
-		"SELECT citas.id, users.nombres, users.apellidos, servicios.descripcion AS 'servicio', citas.fecha, citas.hora, estatus.descripcion AS 'status' 
+		"SELECT citas.id, users.nombres, users.apellidos, servicios.descripcion AS 'servicio', citas.fecha,users.telefono as 'telefono',users.email as 'email', citas.hora, estatus.descripcion AS 'status' 
 		FROM citas
 		INNER JOIN users ON citas.iduser = users.id 
 		INNER JOIN servicios ON citas.idservicio = servicios.id 
@@ -44,6 +44,8 @@
 			'servicio' => $row['servicio'],
 			'fecha' => $row['fecha'],
 			'hora' => $row['hora'],
+			'telefono' => $row['telefono'],
+			'email' => $row['email'],
 			'status' => $row['status']
 		);
 	}
