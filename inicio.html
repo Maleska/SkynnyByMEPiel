@@ -48,7 +48,7 @@
   <div id="topbar" style="margin-top: 10px" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex">
       <div class="contact-info mr-auto"><!--<em class="icofont-envelope"></em> <a href="mailto:contact@example.com">contact@example.com</a> <em class="icofont-phone"></em> +1 5589 55488 55 <em class="icofont-google-map"></em> A108 Adam Street, NY 
-		<p>--><em class="icofont-clock-time"></em>Lunes a Viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm
+		<p>--><em class="icofont-clock-time"></em>LUNES A VIERNES DE 9:00 am - 8:00 pm SABADOS 9:00 am - 6:00 pm
 		</div>
       <div class="social-links">
         <a href="#" class="twitter" hidden=""><i class="icofont-twitter"></i></a>
@@ -85,7 +85,8 @@
         </ul>
       </nav><!-- .nav-menu -->
 	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalVideos" hidden="">Subir video</a>
-      <a href="#appointment" class="appointment-btn scrollto" style="display: none">Haz una cita</a>
+		<a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalExito" hidden=""></a>
+      <a href="#appointment" class="appointment-btn scrollto" style="display: none">HAZ UNA CITA</a>
 	  <a href="#appointment" class="appointment-btn scrollto" onClick="destroyCookie()" >CERRAR SESION</a>
 	  
 
@@ -876,40 +877,44 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Modificar</h5>
+				<h5 class="modal-title" id="exampleModalLabel">MODIFICAR</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
 			  </div>
 			  <div class="modal-body">
-				<label style="font-weight: bold">Nombre</label>
+				<label style="font-weight: bold">NOMBRE(S)</label>
 				  <br>
 				  <span id="lblNombre"></span>
 				  <br>
-				  <label style="font-weight: bold">Apellido</label>
+				  <label style="font-weight: bold">APELLIDO(S)</label>
 				  <br>
 				  <span id="lblApellido"></span>
 				  <br>
-				 <label style="font-weight: bold">Servicio</label>
+				 <label style="font-weight: bold">SERVICIO</label>
 				  <br>
 				  <span id="lblServicio"></span>
 				  <br>
-				  <label style="font-weight: bold">Fecha</label>
+				  <label style="font-weight: bold">FECHA</label>
 				  <br>
 				  <span id="lblFecha"></span>
 				  <br>
-				  <label style="font-weight: bold">Hora</label>
+				  <label style="font-weight: bold">HORA</label>
 				  <br>
-				  <span id="lblHora>"></span>
+				  <span id="lblHora"></span>
 				  <br>
-				  <label style="font-weight: bold">Estatus</label>
-				  
+				  <label style="font-weight: bold">ESTATUS</label>
+				  <br>
+				  <p><select class="form-control" id="selStatus" style="height: auto;width: auto"> </select></p>
+				  <br>
+				  <label><span style="font-weight: bolder"> SELECCIONAR SERVICIO </span> </label>
+				  <p><select class="form-control" id="selServicio" onChange="changeCombo()" style="height: auto;width: auto" disabled> </select></p>
 				  <label id="lblid" hidden=""></label>
 				  <br>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary">Actualizar</button>
+				<button type="button" class="btn btn-secondary" id="btnidCerrar" data-dismiss="modal">CERRAR</button>
+				<button type="button" class="btn btn-primary" onClick="actualizarEvento()">ACTUALIZAR</button>
 			  </div>
 			</div>
 		  </div>
@@ -942,6 +947,26 @@
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 				<button type="submit" class="btn btn-primary">Iniciar sesión</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  
+	  <div class="modal fade" id="ModalExito" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel"></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<label><span>REGISTRO ACTUALIZADO CORRECTAMENTE</span></label>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+				<!--<button type="submit" class="btn btn-primary">Iniciar sesión</button>-->
 			  </div>
 			</div>
 		  </div>

@@ -47,6 +47,8 @@
 			'servicio' => $row['servicio'],
 			'fecha' => $row['fecha'],
 			'hora' => $row['hora'],
+			'telefono' => $row['telefono'],
+			'email' => $row['email'],
 			'status' => $row['status']
 		);
 	}

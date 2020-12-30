@@ -1,6 +1,7 @@
 // JavaScript Document
 var listHoraNo =[];
 var listaServicios =[];
+var listaStatus =[];
 var ban=true;
 function showsections (id){
 	
@@ -374,8 +375,10 @@ function agregarcita(){
 						  
 					document.getElementById("fecha").valueAsDate = new Date();
 						$("#btnCerrarModalCita").click();
-					alert("Cita agendada");
+					
 					 }
+				//alert("Cita agendada");
+				$("#btnAlertaCita").click();
                 }
            });
 	}else{
@@ -392,6 +395,7 @@ function clearFill(){
 }
 
 function validSesionInicio(){
+	"use strict";
 	var currentDate = new Date();
 	var day = currentDate.getDate();
 	var month = currentDate.getMonth() + 1;
@@ -472,7 +476,7 @@ function getCitasByFecha(){
                     var product = datos[i];
 					
                     /*target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+ product['servicio'] +"</td><td>"+product['fecha']+"</td><td>"+product['hora']+"</td><td>"+ product['status'] +"</td></tr>");*/
-					target.append("<tr><td>"+ product['hora'] +":00</td><td>"+ product['nombre'] +"</td><td>"+product['apellido']+"</td><td>"+ product['telefono'] +"</td>"+product['email']+"<td></td><td><input type='button' class='appointment-btn scrollto' value='modificar' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
+					target.append("<tr><td>"+ product['hora'] +":00</td><td>"+ product['nombre'] +"</td><td>"+product['apellido']+"</td><td>"+ product['telefono'] +"</td><td>"+product['email']+"</td><td><input type='button' class='appointment-btn scrollto' value='MODIFICAR' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
 					/*target.append("<tr><td>" + product['nombre'] +"</td><td>" + product['apellido'] +"</td><td>" +product['servicio'] + "</td><td>" + product['fecha'] +"</td><td>" + product['hora'] + "</td><td>" + product['status'] +"</td></tr>");*/
 					}
 					//target.append("</tbody>");
@@ -492,6 +496,8 @@ function getCitasByFecha(){
 }
 
 function cargarInfo(id){
+		getServicios();
+		getStatus();
 	$.ajax({
             type:'post', //aqui puede ser igual get
             url: 'php/getCitasById.php',//aqui va tu direccion donde esta tu funcion php
@@ -509,11 +515,15 @@ function cargarInfo(id){
 					document.getElementById('lblApellido').innerText = datos['apellidos'] ;
 					document.getElementById('lblServicio').innerText = datos['servicio'] ;
 					document.getElementById('lblFecha').innerText = datos['fecha'] ;
-					document.getElementById('lblHora').innerText = datos['hora'] ;
+					document.getElementById('lblHora').innerText = datos['hora'] +":00";
 					//document.getElementById('lblNombre').innerText = product['nombres'] ;
+					//document.getElementById('lblstatus').innerText =  datos['status'];
+					$('#selStatus').val(datos['idstatus']);
+					$('#selServicio').val(datos['idservicio']);
 					document.getElementById('lblid').innerText=datos['id'];
 				
 				//	}
+			
                 }
 		
 				
@@ -547,6 +557,69 @@ function getServicios(){
            });	
 }
 
+function getStatus(){
+	
+	var status = document.getElementById("selStatus");
+	listaStatus = [];
+	//var valor = e.options[e.selectedIndex].value;
+	$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/getEstatus.php',//aqui va tu direccion donde esta tu funcion php
+            //data: {citaid:id},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 	
+                	//servicios.append('<option value=\'0\'> -- SELECCIONE UNA OPCIÓN -- </option>');
+				listaStatus.push("<option value=\'0\'> -- SELECCIONE UNA OPCIÓN -- </option>");
+               for (var i = 0; i < datos.length; i++) {
+                   
+                    var product = datos[i];
+					
+						listaStatus.push("<option value='"+product['id']+"'>"+product['descripcion']+"</option>");
+				
+					}
+				 status.innerHTML = listaStatus;
+                }
+		
+				
+           });	
+
+}
+
 function uloadFile(){
 	var rchivs = document.getElementById('files').file[0];
+}
+
+function actualizarEvento(){
+	
+	var servicios = document.getElementById("selServicio");
+	var valor = servicios.options[servicios.selectedIndex].value;
+	
+	var status = document.getElementById("selStatus");
+	var idstatus = status.options[status.selectedIndex].value;
+	
+	
+		var idcita = document.getElementById('lblid').innerText;
+		var idservicio = valor;
+		var fecha = document.getElementById('lblFecha').innerText;
+	var hora = document.getElementById('lblHora').innerText.replace(":00","");
+	//var idstatus = idstatus;
+	
+		$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/updateCita.php',//aqui va tu direccion donde esta tu funcion php
+            data: {citaid:idcita,servicio:idservicio,fecha:fecha,hora:hora,estatus:idstatus},//aqui tus datos
+		 	dataType: 'html',
+            success:function(response){
+               		var datos =response;
+				 	
+                	//servicios.append('<option value=\'0\'> -- SELECCIONE UNA OPCIÓN -- </option>');
+				if(datos === "REGISTRO ACTUALIZADO CORRECTAMENTE"){
+					//alert("");
+				$("#btnidCerrar").click();
+                }
+   			 }
+				
+           });
 }

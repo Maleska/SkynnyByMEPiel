@@ -45,7 +45,7 @@
   <div id="topbar" style="margin-top: 10px" class="d-none d-lg-flex align-items-center fixed-top">
     <div class="container d-flex">
       <div class="contact-info mr-auto"><!--<em class="icofont-envelope"></em> <a href="mailto:contact@example.com">contact@example.com</a> <em class="icofont-phone"></em> +1 5589 55488 55 <em class="icofont-google-map"></em> A108 Adam Street, NY 
-		<p>--><em class="icofont-clock-time">Lunes a Viernes 9:00 am - 8:00 pm Sabados 9:00 am - 6:00 pm</em><!--</p>-->
+		<p>--><em class="icofont-clock-time">LUNES A VIERNES 9:00 am - 8:00 pm SABADOS 9:00 am - 6:00 pm</em><!--</p>-->
 		</div>
       <div class="social-links">
         <a href="#" class="twitter" hidden=""><i class="icofont-twitter"></i></a>
@@ -67,16 +67,16 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="#">INICIO</a></li>
+          <!--<li class="active"><a href="#">INICIO</a></li>-->
           <!--<li><a href="#about">Nosotros</a></li>-->
          <li class="drop-down"><a href="#">SERVICIOS</a>
 			<ul>
-                  <li><a href="#radiofrecuencia" onClick="showsections(1)">Radiofrecuencia</a></li>
-                  <li><a href="#Maderoterapia" onClick="showsections(2)">Maderoterapia</a></li>
-                  <li><a href="#Carboxiterapia" onClick="showsections(3)">Carboxiterapia</a></li>
-                  <li><a href="#Ultrasonido" onClick="showsections(4)">Ultrasonido</a></li>
-                  <li><a href="#Enzimas" onClick="showsections(5)">Enzimas</a></li>
-				  <li><a href="#Electrodos" onClick="showsections(6)">Electrodos</a></li>
+                  <li><a href="#radiofrecuencia" onClick="showsections(1)">RADIOFRECUENCIA</a></li>
+                  <li><a href="#Maderoterapia" onClick="showsections(2)">MADEROERAPIA</a></li>
+                  <li><a href="#Carboxiterapia" onClick="showsections(3)">CARBOXITERAÍA</a></li>
+                  <li><a href="#Ultrasonido" onClick="showsections(4)">ULTRASONIDO</a></li>
+                  <li><a href="#Enzimas" onClick="showsections(5)">ENZIMAS</a></li>
+				  <li><a href="#Electrodos" onClick="showsections(6)">ELECTRODOS</a></li>
                 </ul>
 			</li>
           <!--<li><a href="#departments">Departments</a></li>
@@ -104,6 +104,7 @@
       </nav><!-- .nav-menu -->
 
       <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalCitas">HAZ UNA CITA</a>
+		  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalAlertaCita" id="btnAlertaCita" style="display: none">HAZ UNA CITA</a>
 	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#exampleModal">INICIAR SESION</a>
 	  
 
@@ -111,59 +112,78 @@
   </header><!-- End Header -->
 	
 	<!-- ======= Hero Section ======= -->
-<section id="hero1" class="d-flex align-items-start">
-	
-	
-	</section>
-	
+
 	<!-- ======= Hero Section ======= -->
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-start">
-    <div class="container align-items-center" id="divBienvenida" >
+    <div class="container align-items-center" id="divBienvenida" style="height: auto" >
+		<br><br><br>
 		<h1>Bienvenido a Skinny by M.E.Piel</h1>
       <!--<h1>Welcome to Medilab</h1>
       <h2>We are team of talanted designers making websites with Bootstrap</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
     </div>
 	  
-	<div class="container" id="radiofrecuencia" style="display: none">
-		<br>
+	<div class="container overflow-auto" id="radiofrecuencia" style="display: none; ">
+	<br><br><br><br>
 	  <h1>Radiofrecuencia</h1>
-		<div id="divvideo" class="container">
+		<div class="row">
+		<img src="assets/images/radiofrecuencia.jpg" class="col-md-4" style="width: 50%;height: auto;margin-top: auto">
+		<!--</div>-->
+		<!--<div id="divvideo" class="col-md-4 col-md-offset-4">-->
 			<video controls
 				src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
 				poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
-				width="620">
+				style="width: 75%;height: 75%" class="col-md-offset-4">
 
 			Sorry, your browser doesn't support embedded videos,
 			but don't worry, you can <a href="https://archive.org/details/BigBuckBunny_124">download it</a>
 			and watch it with your favorite video player!
 
 			</video>
+			<br>
+			<br>
 		</div>
+		<br>
+		<br>
 	</div>
 	  <div class="container" id="Maderoterapia" style="display: none">
 		  <br>
 	  <h1>Maderoterapia</h1>
+		  <div class="col-4">
+		<img src="assets/images/maderoterapia.jpg" style="width: 100%;height: 100%">
+		</div>
 	</div>
 	 <div class="container" id="Carboxiterapia" style="display: none">
 		<br>
 	  <h1>Carboxiterapia</h1>
+		 <div class="col-4">
+		<img src="assets/images/CARBOXITERAÍA.jpg" style="width: 100%;height: 100%">
+		</div>
 	</div>
 	 <div class="container" id="Ultrasonido" style="display: none">
 		<br>
 		<br>
 	  <h1>Ultrasonido</h1>
+		 <div class="col-4">
+		<img src="assets/images/ULTRASONIDO.jpg" style="width: 100%;height: 100%">
+		</div>
 	</div>
 	  <div class="container" id="Enzimas" style="display: none">
 		<br>
 		<br>
 	  <h1>Enzimas</h1>
+		  <div class="col-4">
+		<img src="assets/images/ENZIMAS.jpg" style="width: 100%;height: 100%">
+		</div>
 	</div>
 	 <div class="container" id="Electrodos" style="display: none">
 		<br>
 		<br>
 	  <h1>Electrodos</h1>
+		 <div class="col-4">
+		<img src="assets/images/ELECTRODOS.jpg" style="width: 100%;height: 100%">
+		</div>
 	</div>
 	  
   </section><!-- End Hero -->
@@ -1117,6 +1137,26 @@
 		</div>
 		  <!--</form>-->
 	  
+	  <!-- mODAL ALERTA CITA -->
+	  <div class="modal fade" id="ModalAlertaCita" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabelnam">CITA</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				 <span style="font-weight: bolder;text-transform: uppercase">CITA AGENDADA CORRECTAMENTE</span>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>
+				<!--<button type="button" onClick="agregarcita()" class="btn btn-primary">Hacer cita</button>-->
+			  </div>
+			</div>
+		  </div>
+		</div>
 	  
   </main><!-- End #main -->
 
