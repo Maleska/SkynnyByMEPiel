@@ -22,7 +22,7 @@
 	$citaId = $_POST['citaid'];
 
 	$query = 
-		"SELECT citas.id, users.nombres, users.apellidos, citas.idservicio as 'idservicio',servicios.descripcion AS 'servicio', citas.fecha, citas.hora as 'hora', estatus.descripcion AS 'status',estatus.id as 'idstatus'
+		"SELECT citas.id, users.nombres, users.apellidos, servicios.descripcion AS 'servicio', citas.fecha, citas.hora, estatus.descripcion AS 'status' 
 		FROM citas
 		INNER JOIN users ON citas.iduser = users.id 
 		INNER JOIN servicios ON citas.idservicio = servicios.id 

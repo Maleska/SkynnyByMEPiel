@@ -27,7 +27,8 @@
 	$query = 
 		"SELECT id, descripcion
 		FROM servicios
-		WHERE active = true";
+		WHERE active = true
+		ORDER BY descripcion";
 
 	$result = mysqli_query($conn,$query);
 
