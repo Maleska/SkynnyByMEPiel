@@ -42,8 +42,6 @@
 			'id' => $row['id'],
 			'nombre' => $row['nombres'],
 			'apellido' => $row['apellidos'],
-			'email' => $row['email'],
-			'telefono' => $row['telefono'],
 			'servicio' => $row['servicio'],
 			'fecha' => $row['fecha'],
 			'hora' => $row['hora'],
