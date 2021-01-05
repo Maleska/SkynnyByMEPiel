@@ -84,11 +84,12 @@
 			</li>-->
         </ul>
       </nav><!-- .nav-menu -->
+		<div class="d-lg-block" >
 	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalVideos" hidden="">Subir video</a>
 		<a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalExito" hidden=""></a>
       <a href="#appointment" class="appointment-btn scrollto" style="display: none">HAZ UNA CITA</a>
-	  <a href="#appointment" class="appointment-btn scrollto" onClick="destroyCookie()" >CERRAR SESION</a>
-	  
+	  <a href="#" style="background-color: #dccae7" class="appointment-btn scrollto" onClick="destroyCookie()" >CERRAR SESION</a>
+	  </div>
 
     </div>
   </header><!-- End Header -->
@@ -102,14 +103,17 @@
 		<input type="date" class="form-control-sm" id="txbdate" onChange="getCitasByFecha()">
 		<br>
 		<br>
-		<table id="tableCitas" class="display" style="width:100%;background-color: white">
-			<thead>
+		<table id="tableCitas" border="2" class="display" style="width:100%;background-color: white">
+			<thead style="background-color: ghostwhite;text-align: center">
 				<tr>
 					<th>HORA</th>
 					<th>NOMBRE</th>
 					<th>APELLIDOS</th>
 					<th>TELEFONOS</th>
 					<th>E-MAIL</th>
+					<th>SERVICIO</th>
+					<th>ESTATUS</th>
+					<th>MODIFICAR</th>
 				</tr>
 			</thead>
 			<tbody id="tbodyCitas"></tbody>
