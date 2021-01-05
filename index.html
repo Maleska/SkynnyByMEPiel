@@ -103,9 +103,9 @@
         </ul>
       </nav><!-- .nav-menu -->
 
-      <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalCitas">HAZ UNA CITA</a>
-		  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalAlertaCita" id="btnAlertaCita" style="display: none">HAZ UNA CITA</a>
-	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#exampleModal">INICIAR SESION</a>
+      <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalCitas" style="background-color: #dccae7">HAZ UNA CITA</a>
+		  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalAlertaCita" id="btnAlertaCita" style="display: none;background-color: #dccae7">HAZ UNA CITA</a>
+	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#exampleModal" style="background-color: #dccae7">INICIAR SESION</a>
 	  
 
     </div>
@@ -958,7 +958,7 @@
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary">Iniciar sesión</button>
+				<button type="submit" class="btn btn-primary" style="background-color: #dccae7">Iniciar sesión</button>
 			  </div>
 			</div>
 		  </div>
@@ -1015,7 +1015,7 @@
 					 <input type="text" id="hora" style="display: none">
 						<select id="selHora" class="verde-option " onChange="selectTime()">
 							<option value="0"> -- SELECCIONE UNA OPCION -- </option>
-							<option value="9"> 9:00 a.m.</option>
+							<option value="09"> 9:00 a.m.</option>
 							<option value="10">10:00 a.m.</option>
 							<option value="11">11:00 a.m.</option>
 							<option value="12">12:00 a.m.</option>
@@ -1130,7 +1130,7 @@
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>
-				<button type="button" onClick="agregarcita()" class="btn btn-primary">Hacer cita</button>
+				<button type="button" onClick="agregarcita()" style="background-color: #dccae7" class="btn btn-primary">Hacer cita</button>
 			  </div>
 			</div>
 		  </div>
@@ -1149,6 +1149,8 @@
 			  </div>
 			  <div class="modal-body">
 				 <span style="font-weight: bolder;text-transform: uppercase">CITA AGENDADA CORRECTAMENTE</span>
+				  <label id=lbldatoscitas></label>
+				  <p><span>FAVOR DE PRESENTARSE CON SU INE A RECEPCION</span></p>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>

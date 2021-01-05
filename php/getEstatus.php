@@ -27,8 +27,7 @@
 	$query = 
 		"SELECT id, descripcion
 		FROM estatus
-		WHERE active = true
-		ORDER BY descripcion";
+		WHERE active = true";
 
 	$result = mysqli_query($conn,$query);
 

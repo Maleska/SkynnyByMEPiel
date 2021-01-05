@@ -161,10 +161,14 @@ function changeCombo(){
 	if(valor != "0"){
 		
 		var x = document.getElementById("divCalendario");
+		var xx = document.getElementById("divTable");
+	
 		  if (x.style.display === "none") {
 			x.style.display = "block";
+			  xx.style.display = "block";
 		  } else {
 			x.style.display = "none";
+			  xx.style.display = "none";
 		  }
 	}
 }
@@ -205,7 +209,7 @@ function selectDate(){
 						 
 					listHoraNo.push(product);	 
 						 switch (product){
-							 case "9":
+							 case "09":
 								 select[1].style.backgroundColor='#ff3933';
 								 break;
 							 case "10":
@@ -338,6 +342,8 @@ function agregarcita(){
 	var split= fecha.split('-');
 	
 	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
+	document.getElementById('lbldatoscitas').innerHTML = "";
+	document.getElementById('lbldatoscitas').innerHTML ="CITA AGENDADA PARA: " + nombre +" " + apellido + " FECHA " + fecha + " HORA " + hora +":00 ";
 	
 	if(ban === true){
 	
@@ -476,7 +482,7 @@ function getCitasByFecha(){
                     var product = datos[i];
 					
                     /*target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+ product['servicio'] +"</td><td>"+product['fecha']+"</td><td>"+product['hora']+"</td><td>"+ product['status'] +"</td></tr>");*/
-					target.append("<tr><td>"+ product['hora'] +":00</td><td>"+ product['nombre'] +"</td><td>"+product['apellido']+"</td><td>"+ product['telefono'] +"</td><td>"+product['email']+"</td><td><input type='button' class='appointment-btn scrollto' value='MODIFICAR' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
+					target.append("<tr><td>"+ product['hora'] +":00</td><td>"+ product['nombre'] +"</td><td>"+product['apellido']+"</td><td>"+ product['telefono'] +"</td><td>"+product['email']+"</td><td>"+product['servicio']+"</td><td>"+ product['status']+"</td><td><input type='button' class='appointment-btn scrollto' value='MODIFICAR' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
 					/*target.append("<tr><td>" + product['nombre'] +"</td><td>" + product['apellido'] +"</td><td>" +product['servicio'] + "</td><td>" + product['fecha'] +"</td><td>" + product['hora'] + "</td><td>" + product['status'] +"</td></tr>");*/
 					}
 					//target.append("</tbody>");
