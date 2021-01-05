@@ -1,0 +1,3 @@
+-- UPDATE TABLES
+
+ALTER TABLE skinny.servicios ADD costo FLOAT NOT NULL;
