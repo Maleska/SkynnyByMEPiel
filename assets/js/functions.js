@@ -440,7 +440,7 @@ function createCookie(){
 	//document.cookie = "user=John"; 
 	 localStorage.setItem("name", "recepcionista");
 	//alert(document.cookie);
-	location.href='../inicio.html';
+	location.href='../../inicio.html';
 }
 
 function destroyCookie(){

@@ -39,7 +39,7 @@ $password  = $_POST['password'];
 		//session_regenerate_id();
 		$_COOKIE["valida"] = "activo";
 		//echo("alert('Si entro a la validacion')");
-		 echo "<script src='../assets/js/functions.js'></script>";
+		 echo "<script src='../../assets/js/functions.js'></script>";
 		 echo "<script>document.cookie = 'recepcionista'; 
 		 var decodedCookie = decodeURIComponent(document.cookie);
 		 //alert(decodedCookie);
