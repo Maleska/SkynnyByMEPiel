@@ -133,7 +133,7 @@ function getCitas(){
 	"use strict";
 	$.ajax({
             type:'get', //aqui puede ser igual get
-            url: 'php/getCitas.php',//aqui va tu direccion donde esta tu funcion php
+            url: 'php/Citas/getCitas.php',//aqui va tu direccion donde esta tu funcion php
             //data: {pregunta:pregunta},//aqui tus datos
 		 	dataType: 'JSON',
             success:function(response){
@@ -191,7 +191,7 @@ function selectDate(){
 		
 		$.ajax({
             type:'post', //aqui puede ser igual get
-            url: 'php/getCitasByFechaOnlyHora.php',//aqui va tu direccion donde esta tu funcion php
+            url: 'php/Citas/getCitasByFechaOnlyHora.php',//aqui va tu direccion donde esta tu funcion php
             data: {fecha:newfecha},//aqui tus datos
 		 	dataType: 'JSON',
             success:function(response){
@@ -262,7 +262,7 @@ function getHorasxDia(){
 	"use strict";
 	$.ajax({
             type:'get', //aqui puede ser igual get
-            url: 'php/getCitas.php',//aqui va tu direccion donde esta tu funcion php
+            url: 'php/Citas/getCitas.php',//aqui va tu direccion donde esta tu funcion php
             //data: {pregunta:pregunta},//aqui tus datos
 		 	dataType: 'JSON',
             success:function(response){
@@ -349,7 +349,7 @@ function agregarcita(){
 	
 	$.ajax({
             type:'POST', //aqui puede ser igual get
-            url: 'php/addCita.php',//aqui va tu direccion donde esta tu funcion php
+            url: 'php/Citas/addCita.php',//aqui va tu direccion donde esta tu funcion php
             data: {nombre:nombre.toUpperCase(),apellido:apellido.toUpperCase(),fecha:newfecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
 		 	//dataType: 'JSON',
 			dataType: 'html',
@@ -460,7 +460,7 @@ function getCitasByFecha(){
 	
 	$.ajax({
             type:'post', //aqui puede ser igual get
-            url: 'php/getCitasByFecha.php',//aqui va tu direccion donde esta tu funcion php
+            url: 'php/Citas/getCitasByFecha.php',//aqui va tu direccion donde esta tu funcion php
             data: {fecha:newfecha},//aqui tus datos
 		 	dataType: 'JSON',
             success:function(response){
@@ -506,7 +506,7 @@ function cargarInfo(id){
 		getStatus();
 	$.ajax({
             type:'post', //aqui puede ser igual get
-            url: 'php/getCitasById.php',//aqui va tu direccion donde esta tu funcion php
+            url: 'php/Citas/getCitasById.php',//aqui va tu direccion donde esta tu funcion php
             data: {citaid:id},//aqui tus datos
 		 	dataType: 'JSON',
             success:function(response){
@@ -541,7 +541,7 @@ function getServicios(){
 	//var valor = e.options[e.selectedIndex].value;
 	$.ajax({
             type:'post', //aqui puede ser igual get
-            url: 'php/getServicios.php',//aqui va tu direccion donde esta tu funcion php
+            url: 'php/Servicios/getServicios.php',//aqui va tu direccion donde esta tu funcion php
             //data: {citaid:id},//aqui tus datos
 		 	dataType: 'JSON',
             success:function(response){
@@ -570,7 +570,7 @@ function getStatus(){
 	//var valor = e.options[e.selectedIndex].value;
 	$.ajax({
             type:'post', //aqui puede ser igual get
-            url: 'php/getEstatus.php',//aqui va tu direccion donde esta tu funcion php
+            url: 'php/Estatus/getEstatus.php',//aqui va tu direccion donde esta tu funcion php
             //data: {citaid:id},//aqui tus datos
 		 	dataType: 'JSON',
             success:function(response){
@@ -614,7 +614,7 @@ function actualizarEvento(){
 	
 		$.ajax({
             type:'post', //aqui puede ser igual get
-            url: 'php/updateCita.php',//aqui va tu direccion donde esta tu funcion php
+            url: 'php/Citas/updateCita.php',//aqui va tu direccion donde esta tu funcion php
             data: {citaid:idcita,servicio:idservicio,fecha:fecha,hora:hora,estatus:idstatus},//aqui tus datos
 		 	dataType: 'html',
             success:function(response){
