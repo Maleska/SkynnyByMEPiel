@@ -21,3 +21,12 @@ INSERT INTO skinny.servicios (descripcion,active) VALUES
 	 ('ULTRASONIDO',1),
 	 ('ENZIMAS',1),
 	 ('ELECTRODOS',1);
+
+-- METODOS PAGO
+INSERT INTO skinny.metodospago (descripcion,active) VALUES
+	 ('EFECTIVO',1),
+	 ('TARJETA',1),
+	 ('DEPOSITO',0),
+	 ('CHEQUE',0),
+	 ('TRANSFERENCIA',0),
+	 ('OTRO PAGO',0);
