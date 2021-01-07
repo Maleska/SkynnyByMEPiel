@@ -315,27 +315,27 @@ function agregarcita(){
 	
 	
 	if(nombre === ""){
-		alert("favor de agregar un nombre");
+		alert("FAVOR DE AGREGAR UN NOMBRE");
 		return;
 	}
 	if(apellido === ""){
-		alert("Favor de agregar un apellido");
+		alert("FAVOR DE AGREGAR UN APELLIDO");
 		return;
 	}
 	if(fecha === ""){
-		alert("Favor de agregar una fecha");
+		alert("FAVOR DE AGREGAR UNA FECHA");
 		return;
 	}
 	if(hora === "0"){
-		alert("Favor de agregar una hora");
+		alert("FAVOR DE AGREGAR UNA HORA");
 		return;
 	}
 	if(telefono === ""){
-		alert("Favor de agregar un teléfono");
+		alert("FAVOR DE AGERGAR UN TELÉFONO");
 		return;
 	}
 	if(email ===""){
-		alert("Favor de agregar un email");
+		alert("FAVOR DE AGREGAR UN EMAIL");
 		return;
 	}
 	
@@ -343,7 +343,7 @@ function agregarcita(){
 	
 	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
 	document.getElementById('lbldatoscitas').innerHTML = "";
-	document.getElementById('lbldatoscitas').innerHTML ="CITA AGENDADA PARA: " + nombre +" " + apellido + " FECHA " + fecha + " HORA " + hora +":00 ";
+	document.getElementById('lbldatoscitas').innerHTML ="CITA AGENDADA PARA: " + nombre +" " + apellido + " FECHA " + fecha + " HORA " + hora +":00 \n PAGO EN RECEPCIÓN \n METODO DE PAGO EN EFECTVO Y TARJETA DE CREDITO - DÉDITO";
 	
 	if(ban === true){
 	
@@ -482,7 +482,7 @@ function getCitasByFecha(){
                     var product = datos[i];
 					
                     /*target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+ product['servicio'] +"</td><td>"+product['fecha']+"</td><td>"+product['hora']+"</td><td>"+ product['status'] +"</td></tr>");*/
-					target.append("<tr><td>"+ product['hora'] +":00</td><td>"+ product['nombre'] +"</td><td>"+product['apellido']+"</td><td>"+ product['telefono'] +"</td><td>"+product['email']+"</td><td>"+product['servicio']+"</td><td>"+ product['status']+"</td><td><input type='button' class='appointment-btn scrollto' value='MODIFICAR' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
+					target.append("<tr><td style ='margin: 15px;padding: 15px;'>"+ product['hora'] +":00</td><td style ='margin: 15px;padding: 15px;'>"+ product['nombre'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['apellido']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['telefono'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['email']+"</td><td style ='margin: 15px;padding: 15px;'>"+product['servicio']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['status']+"</td><td style ='margin: 15px;padding: 15px;'><input type='button' class='appointment-btn scrollto' value='MODIFICAR' STYLE='background-color: #dccae7' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
 					/*target.append("<tr><td>" + product['nombre'] +"</td><td>" + product['apellido'] +"</td><td>" +product['servicio'] + "</td><td>" + product['fecha'] +"</td><td>" + product['hora'] + "</td><td>" + product['status'] +"</td></tr>");*/
 					}
 					//target.append("</tbody>");
@@ -529,7 +529,7 @@ function cargarInfo(id){
 					document.getElementById('lblid').innerText=datos['id'];
 				
 				//	}
-			
+					getCitasByFecha();
                 }
 		
 				

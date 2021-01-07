@@ -68,7 +68,13 @@
       <nav class="nav-menu d-none d-lg-block">
         <ul>
           <!--<li class="active"><a href="#">INICIO</a></li>-->
-          <!--<li><a href="#about">Nosotros</a></li>-->
+          <li class="drop-down"><a href="#">PAQUETES</a>
+			<ul>
+				<li><a href="#">Paquete 1</a></li>
+				<li><a href="#">Paquete 2</a></li>
+				<li><a href="#">Paquete 3</a></li>
+			</ul>
+		   </li>
          <li class="drop-down"><a href="#">SERVICIOS</a>
 			<ul>
                   <li><a href="#radiofrecuencia" onClick="showsections(1)">RADIOFRECUENCIA</a></li>
@@ -79,6 +85,7 @@
 				  <li><a href="#Electrodos" onClick="showsections(6)">ELECTRODOS</a></li>
                 </ul>
 			</li>
+			<li><a href="#">POLITICAS DE PRIVACIDAD</a></li>
           <!--<li><a href="#departments">Departments</a></li>
           <li><a href="#doctors">Doctors</a></li>
           <li class="drop-down"><a href="">Drop Down</a>
@@ -107,8 +114,42 @@
 		  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalAlertaCita" id="btnAlertaCita" style="display: none;background-color: #dccae7">HAZ UNA CITA</a>
 	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#exampleModal" style="background-color: #dccae7">INICIAR SESION</a>
 		</div>	  
-
+<br>
+			
     </div>
+	  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="background-color: #dccae7">
+		  <ol class="carousel-indicators" style="background-color: #dccae7">
+			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+		  </ol>
+		  <div class="carousel-inner">
+			<div class="carousel-item active">
+				<center>
+			  <img class="d-block w-40" src="assets/images/CARBOXITERAÍA.jpg" alt="First slide">
+					</center>
+			</div>
+			<div class="carousel-item">
+				<center>
+			  <img class="d-block w-40" src="assets/images/ELECTRODOS.jpg" alt="Second slide">
+					</center>
+			</div>
+			<div class="carousel-item">
+				<center>
+			  <img class="d-block w-40" src="assets/images/ENZIMAS.jpg" alt="Third slide">
+					</center>
+			</div>
+		  </div>
+		  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		  </a>
+		  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		  </a>
+		</div>
+		 
   </header><!-- End Header -->
 	
 	<!-- ======= Hero Section ======= -->
@@ -116,6 +157,7 @@
 	<!-- ======= Hero Section ======= -->
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-start">
+
     <div class="container align-items-center" id="divBienvenida" style="height: auto" >
 		<br><br><br>
 		<h1>Bienvenido a Skinny by M.E.Piel</h1>
@@ -124,7 +166,7 @@
       <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
     </div>
 	  
-	<div class="container overflow-auto" id="radiofrecuencia" style="display: none; ">
+	<div class="container overflow-auto" id="radiofrecuencia" style="display: none; top:50px">
 	<br><br><br><br>
 	  <h1>Radiofrecuencia</h1>
 		<div class="row">
@@ -147,39 +189,36 @@
 		<br>
 		<br>
 	</div>
-	  <div class="container" id="Maderoterapia" style="display: none">
-		  <br>
+	  <div class="container" id="Maderoterapia" style="display: none;ne; top:50px">
+		  <br><br><br><br>
 	  <h1>Maderoterapia</h1>
 		  <div class="col-4">
 		<img src="assets/images/maderoterapia.jpg" style="width: 100%;height: 100%">
 		</div>
 	</div>
-	 <div class="container" id="Carboxiterapia" style="display: none">
-		<br>
+	 <div class="container" id="Carboxiterapia" style="display: none; top:50px">
+		<br><br><br><br>
 	  <h1>Carboxiterapia</h1>
 		 <div class="col-4">
-		<img src="assets/images/CARBOXITERAÍA.jpg" style="width: 100%;height: 100%">
+		<img src="assets/images/CARBOXITERAÍA.jpg" style="width: 100%;height: 100%;">
 		</div>
 	</div>
-	 <div class="container" id="Ultrasonido" style="display: none">
-		<br>
-		<br>
+	 <div class="container" id="Ultrasonido" style="display: none;ne; top:50px">
+		<br><br><br><br>
 	  <h1>Ultrasonido</h1>
 		 <div class="col-4">
 		<img src="assets/images/ULTRASONIDO.jpg" style="width: 100%;height: 100%">
 		</div>
 	</div>
-	  <div class="container" id="Enzimas" style="display: none">
-		<br>
-		<br>
+	  <div class="container" id="Enzimas" style="display: none;ne; top:50px">
+		<br><br><br><br>
 	  <h1>Enzimas</h1>
 		  <div class="col-4">
 		<img src="assets/images/ENZIMAS.jpg" style="width: 100%;height: 100%">
 		</div>
 	</div>
-	 <div class="container" id="Electrodos" style="display: none">
-		<br>
-		<br>
+	 <div class="container" id="Electrodos" style="display: none;ne; top:50px">
+		<br><br><br><br>
 	  <h1>Electrodos</h1>
 		 <div class="col-4">
 		<img src="assets/images/ELECTRODOS.jpg" style="width: 100%;height: 100%">
@@ -1249,7 +1288,7 @@
   <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
   <script src="assets/vendor/counterup/counterup.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script> 
 
 
 
