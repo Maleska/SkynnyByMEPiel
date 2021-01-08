@@ -1,11 +1,8 @@
 // JavaScript Document
-<<<<<<< Updated upstream
 var listHoraNo =[];
 var listaServicios =[];
 var listaStatus =[];
 var ban=true;
-=======
->>>>>>> Stashed changes
 function showsections (id){
 	
 	switch(id){
@@ -178,11 +175,11 @@ function changeCombo(){
 
 function selectDate(){
 	var x = document.getElementById("divTable");
-		  if (x.style.display === "none") {
+	x.style.display = "block";
+		  /*if (x.style.display === "none") {
 			x.style.display = "block";
 		  } else {
 			x.style.display = "none";
-<<<<<<< Updated upstream
 		  }*/
 	
 	var fecha = $("#fecha").val();
@@ -259,9 +256,6 @@ function selectDate(){
                 }
            });
 	
-=======
-		  }
->>>>>>> Stashed changes
 }
 
 function getHorasxDia(){
@@ -289,8 +283,19 @@ function getHorasxDia(){
 	
 }
 
-function selectTime(hora){
-	$("#hora").val(hora);
+function selectTime(){
+	var select = document.getElementById("selHora");
+	var hora = select.options[select.selectedIndex].value;
+	/*var found = listHoraNo.find(function (element) { 
+        return element = hora; 
+    }); */
+	 if(listHoraNo.includes(hora)){
+		 ban =false;
+		 document.getElementById("divAlerta").style.display = "inline";
+	 }else{
+		ban =true;
+		 document.getElementById("divAlerta").style.display = "none"; 
+	 }
 }
 
 function agregarcita(){
@@ -299,11 +304,15 @@ function agregarcita(){
 	var nombre = $("#nombre").val();
 	var apellido = $("#apellido").val();
 	var fecha = $("#fecha").val();
-	var hora = $("#hora").val();
+	//var hora = $("#hora").val();
 	var telefono =$("#telefono").val();
 	var email = $("#correo").val();
 	var e = document.getElementById("selServicio");
 	var valor = e.options[e.selectedIndex].value;
+	
+	var ee = document.getElementById("selHora");
+	var hora = ee.options[ee.selectedIndex].value;
+	
 	
 	if(nombre === ""){
 		alert("FAVOR DE AGREGAR UN NOMBRE");
@@ -317,13 +326,8 @@ function agregarcita(){
 		alert("FAVOR DE AGREGAR UNA FECHA");
 		return;
 	}
-<<<<<<< Updated upstream
 	if(hora === "0"){
 		alert("FAVOR DE AGREGAR UNA HORA");
-=======
-	if(hora === ""){
-		alert("Favor de agregar una hora");
->>>>>>> Stashed changes
 		return;
 	}
 	if(telefono === ""){
@@ -335,7 +339,6 @@ function agregarcita(){
 		return;
 	}
 	
-<<<<<<< Updated upstream
 	var split= fecha.split('-');
 	
 	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
@@ -350,15 +353,9 @@ function agregarcita(){
             data: {nombre:nombre.toUpperCase(),apellido:apellido.toUpperCase(),fecha:newfecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
 		 	//dataType: 'JSON',
 			dataType: 'html',
-=======
-	$.ajax({
-            type:'POST', //aqui puede ser igual get
-            url: 'php/addCita.php',//aqui va tu direccion donde esta tu funcion php
-            data: {nombre:nombre,apellido:apellido,fecha:fecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
-		 	dataType: 'JSON',
->>>>>>> Stashed changes
             success:function(response){
                 //lo que devuelve tu archivo mifuncion.php
+				clearFill();
 				var datos = response;
                 var target = $("#tableCitas");
                 //target.empty();
@@ -390,7 +387,6 @@ function agregarcita(){
 				$("#btnAlertaCita").click();
                 }
            });
-<<<<<<< Updated upstream
 	}else{
 		 ban =false;
 		 document.getElementById("divAlerta").style.display = "inline";
@@ -486,7 +482,7 @@ function getCitasByFecha(){
                     var product = datos[i];
 					
                     /*target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+ product['servicio'] +"</td><td>"+product['fecha']+"</td><td>"+product['hora']+"</td><td>"+ product['status'] +"</td></tr>");*/
-					target.append("<tr><td style ='margin: 15px;padding: 15px;'>"+ product['hora'] +":00</td><td style ='margin: 15px;padding: 15px;'>"+ product['nombre'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['apellido']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['telefono'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['email']+"</td><td style ='margin: 15px;padding: 15px;'>"+product['servicio']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['status']+"</td><td style ='margin: 15px;padding: 15px;'><input type='button' class='appointment-btn scrollto' value='MODIFICAR' STYLE='background-color: #dccae7' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td></tr>")
+					target.append("<tr><td style ='margin: 15px;padding: 15px;'>"+ product['hora'] +":00</td><td style ='margin: 15px;padding: 15px;'>"+ product['nombre'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['apellido']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['telefono'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['email']+"</td><td style ='margin: 15px;padding: 15px;'>"+product['servicio']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['status']+"</td><td style ='margin: 15px;padding: 15px;'><input type='button' class='appointment-btn scrollto' value='MODIFICAR' STYLE='background-color: #dccae7;color:black' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td><td><input type='button' value='PAGAR' style='background-color: #dccae7;color:black;margin: 15px;padding: 15px;' class='appointment-btn scrollto'></td></tr>")
 					/*target.append("<tr><td>" + product['nombre'] +"</td><td>" + product['apellido'] +"</td><td>" +product['servicio'] + "</td><td>" + product['fecha'] +"</td><td>" + product['hora'] + "</td><td>" + product['status'] +"</td></tr>");*/
 					}
 					//target.append("</tbody>");
@@ -633,9 +629,3 @@ function actualizarEvento(){
 				
            });
 }
-=======
-	
-}
-
-
->>>>>>> Stashed changes

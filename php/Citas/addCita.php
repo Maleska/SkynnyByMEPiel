@@ -27,11 +27,11 @@ $email = $_POST['email'];
 	
 //$hoy = getdate();
 	
-$a=date("Y-m-d H:i:s");
+$a=getdate("d/m/Y H:i:s");
 
 	if(isset($servicio)){
 	
-	$query = "Insert Into users (idrol,nombres,apellidos,telefono,email) values(4,'$nombre','$apellido','$telefono','$email')";
+	$query = "Insert Into users (idrol,nombres,apellidos,telefono,email) values(2,'$nombre','$apellido','$telefono','$email')";
 	//echo($query);
 	
 		if($conn ->query($query) === TRUE){
@@ -41,8 +41,8 @@ $a=date("Y-m-d H:i:s");
 			$query="Insert into citas (iduser,idservicio,fecha,hora,idestatus) values ('$lastid',$servicio,'$fecha','$hora',1)";
 
 			$conn->query($query);
-			header("location:../index.html");
-			echo('<script>window.location.href="./index.html";</script>');
+			//header("location:../index.html");
+			//echo('<script>window.location.href="./index.html";</script>');
 
 		}
 	}
@@ -66,7 +66,8 @@ $a=date("Y-m-d H:i:s");
 		 exit;
 	}*/
 
-
+ 
 }
+echo "Registro guardado";
 $conn -> close();
 ?>

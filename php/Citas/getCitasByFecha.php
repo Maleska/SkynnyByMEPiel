@@ -1,12 +1,7 @@
 <?php
 
 	session_start();
-	/*
-	if(isset($_SESSION['rol']))
-	{
-		 echo "<script> location.href='../index.html'; </script>";
-		die();
-	}*/
+	
 	 
 	$servername = "localhost";
 	$database = "skinny";

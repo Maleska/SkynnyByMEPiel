@@ -24,15 +24,10 @@
 		 die( print_r( sqlsrv_errors(), true));
 	}
 
-	$fecha = $_POST['fecha'];
-
 	$query = 
-		"SELECT citas.id, users.nombres, users.apellidos, servicios.descripcion AS 'servicio', citas.fecha, citas.hora, estatus.descripcion AS 'status' 
-		FROM citas
-		INNER JOIN users ON citas.iduser = users.id 
-		INNER JOIN servicios ON citas.idservicio = servicios.id 
-		INNER JOIN estatus ON citas.idestatus = estatus.id
-		WHERE citas.fecha = '$fecha' AND citas.idestatus IN ('1', '2', '3', '4')";
+		"SELECT id, descripcion
+		FROM estatus
+		WHERE active = true";
 
 	$result = mysqli_query($conn,$query);
 
@@ -42,7 +37,10 @@
 
 	$table = array();
 	while($row = mysqli_fetch_array($result)){
-		$table[] = $row['hora'];
+		$table []= array(
+			'id' => $row['id'],
+			'descripcion' => $row['descripcion']
+		);
 	}
 
 	$conn->close();
