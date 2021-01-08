@@ -28,17 +28,16 @@ $password  = $_POST['password'];
 	$resultado =mysqli_query($conn,$query );
 	
 	
-	if ($resultado !== false) {
+	if ($resultado <> 0) {
 		
     $row= mysqli_fetch_assoc($resultado);
 
    //echo( $row['count']);
 		$cantidad =$row['count'];
 	if($cantidad == 1){
-		$_SESSION["rol"] ="recepcionista";
-		//session_regenerate_id();
-		$_COOKIE["valida"] = "activo";
+		$_SESSION['rol'] ="recepcionista";
 		//echo("alert('Si entro a la validacion')");
+<<<<<<< Updated upstream:php/Sesion/validalogin.php
 		 echo "<script src='../../assets/js/functions.js'></script>";
 		 echo "<script>document.cookie = 'recepcionista'; 
 		 var decodedCookie = decodeURIComponent(document.cookie);
@@ -49,6 +48,9 @@ $password  = $_POST['password'];
 		 </script>";
 		 echo "<script>  </script>";
 		 //echo "<script> location.href='../inicio.html'; </script>";
+=======
+		 echo "<script> location.href='../inicio.html'; </script>";
+>>>>>>> Stashed changes:php/validalogin.php
 		 exit;
 	}else{
 		//echo("alert('No entro a la validacion)");

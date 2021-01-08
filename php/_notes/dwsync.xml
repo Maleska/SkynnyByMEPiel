@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <dwsync>
+<<<<<<< Updated upstream
 <file name="validalogin.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132532591734671387" remote="132532591730000000" Dst="1" />
 <file name="getCitas.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132525636591928698" remote="132525636590000000" Dst="1" />
 <file name="destroy_session.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132527391565002000" remote="132527391560000000" Dst="1" />
@@ -9,4 +10,10 @@
 <file name="getCitasByFechaOnlyHora.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132525636592027351" remote="132525636590000000" Dst="1" />
 <file name="getCitasById.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132534999338818814" remote="132534999330000000" Dst="1" />
 <file name="getServicios.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132532591734411797" remote="132532591730000000" Dst="1" />
+=======
+<file name="validalogin.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132521315683938662" remote="132521315680000000" Dst="1" />
+<file name="getCitas.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132520430615902042" remote="132520430610000000" Dst="1" />
+<file name="destroy_session.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132521317748366943" remote="132521317740000000" Dst="1" />
+<file name="addCita.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132523828213434358" remote="132523828210000000" Dst="1" />
+>>>>>>> Stashed changes
 </dwsync>

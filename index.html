@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <!--<link href="assets/img/favicon.png" rel="icon">-->
+  <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -28,7 +28,6 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/css/cambiaColor.css" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Medilab - v2.0.0
@@ -151,10 +150,14 @@
 		</div>
 		 
   </header><!-- End Header -->
+<<<<<<< Updated upstream
 	
 	<!-- ======= Hero Section ======= -->
 
 	<!-- ======= Hero Section ======= -->
+=======
+
+>>>>>>> Stashed changes
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-start">
 
@@ -165,6 +168,7 @@
       <h2>We are team of talanted designers making websites with Bootstrap</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
     </div>
+<<<<<<< Updated upstream
 	  
 	<div class="container overflow-auto" id="radiofrecuencia" style="display: none; top:50px">
 	<br><br><br><br>
@@ -223,6 +227,36 @@
 		 <div class="col-4">
 		<img src="assets/images/ELECTRODOS.jpg" style="width: 100%;height: 100%">
 		</div>
+=======
+	  <br>
+	<div class="container" id="radiofrecuencia" style="display: none">
+		<br>
+		<br>
+	  <h1>Radiofrecuencia</h1>
+	</div>
+	  <div class="container" id="Maderoterapia" style="display: none">
+	  <h1 style="margin-top: -140px">Maderoterapia</h1>
+	</div>
+	 <div class="container" id="Carboxiterapia" style="display: none">
+		<br>
+		<br>
+	  <h1 style="margin-top: -140px">Carboxiterapia</h1>
+	</div>
+	 <div class="container" id="Ultrasonido" style="display: none">
+		<br>
+		<br>
+	  <h1 style="margin-top: -140px">Ultrasonido</h1>
+	</div>
+	  <div class="container" id="Enzimas" style="display: none">
+		<br>
+		<br>
+	  <h1 style="margin-top: -140px">Enzimas</h1>
+	</div>
+	 <div class="container" id="Electrodos" style="display: none">
+		<br>
+		<br>
+	  <h1 style="margin-top: -140px">Electrodos</h1>
+>>>>>>> Stashed changes
 	</div>
 	  
   </section><!-- End Hero -->
@@ -911,9 +945,9 @@
         </div>
       </div>
 
-      <!--<div>
+      <div>
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
-      </div>-->
+      </div>
 
       <div class="container">
         <div class="row mt-5">
@@ -1018,11 +1052,15 @@
 			  </div>
 			  <div class="modal-body">
 				  <div class="container-fluid">
-				  	<input type="text" class="form-control" id="nombre" placeholder="Nombres" style="text-transform: uppercase" required>
+				  	<input type="text" class="form-control" id="nombre" placeholder="Nombres" required>
 					  <br>
-				 	<input type="text" class="form-control" id="apellido" placeholder="Apellidos" style="text-transform: uppercase" required>
+				 	<input type="text" class="form-control" id="apellido" placeholder="Apellidos" required>
 					  <br>
+<<<<<<< Updated upstream
 					<input type="tel" class="form-control" maxlength="10"  id="telefono" placeholder="TELEFONO" required>
+=======
+					<input type="tel" class="form-control" id="telefono" placeholder="Teléfono" required>
+>>>>>>> Stashed changes
 					  <br>
 					<input type="email" class="form-control" id="correo" placeholder="E-mail" required>
 				  </div>
@@ -1043,15 +1081,16 @@
 						<div class="form-group">
 							<span style="font-weight: bolder">SELECCIONAR FECHA</span>
 							<div class="input-group date" id="datetimepicker1">
-								<input type="date" id="fecha" class="form-control" onChange="selectDate()" />
+								<input type="date" id="fecha" class="form-control" onChange="selectDate()" onSelect="selectDate()" />
 								<span class="input-group-addon">
 									<span class="glyphicon glyphicon-calendar"></span>
 								</span>
 							</div>
 						</div>
 					</div>
-					<div id="divTable" class="container-fluid;" style="display: none;">
+					<div id="divTable" class="container-fluid" style="display: none">
 					 <input type="text" id="hora" style="display: none">
+<<<<<<< Updated upstream
 						<select id="selHora" class="verde-option " onChange="selectTime()">
 							<option value="0"> -- SELECCIONE UNA OPCION -- </option>
 							<option value="09"> 9:00 a.m.</option>
@@ -1069,6 +1108,9 @@
 						
 						</select>
 						 <!--<table>
+=======
+						 <table>
+>>>>>>> Stashed changes
 							 <thead><tr><td><span style="font-weight: bolder">Favor de seleccionar la hora</span></td></tr></thead>
 						<tbody id="tbodyHours">
 							 <tr>
@@ -1156,12 +1198,9 @@
 								 
 							</tr>
 						</tbody>
-						</table>-->
+						</table>
 					 
 					</div>
-					 <div id="divAlerta" style="display: none">
-					 	<span class="rojo-option"><em>La hora seleccionada ya no esta disponible</em></span>
-					 </div>
 					 <!--<input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Seleccionar fecha" data-rule="minlen:4" data-msg="Please enter at least 4 chars">-->
 					 <!--<input type="datetime" name="datetime" class="form-control datepicker" id="datetime" placeholder="Seleccionar fecha" data-rule="minlen:4" >-->
 					 
@@ -1312,14 +1351,17 @@
 			var mm = String(today.getMonth() + 1); //January is 0!
 			var yyyy = today.getFullYear();
 
-			today = dd + '/' + mm + '/' + yyyy;
+			today = mm + '/' + dd + '/' + yyyy;
 		/*$('#datetimepicker1').datetimepicker({
 			format: 'dd/mm/yyyy'
 		});*/
 		  $("#datetimepicker1").val(today);
+<<<<<<< Updated upstream
 		  document.getElementById("fecha").valueAsDate = new Date();
 		  getServicios();
 		  //validSesionInicio();
+=======
+>>>>>>> Stashed changes
 	  });
 	</script>
 

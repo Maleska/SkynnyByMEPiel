@@ -32,7 +32,7 @@
 		INNER JOIN users ON citas.iduser = users.id 
 		INNER JOIN servicios ON citas.idservicio = servicios.id 
 		INNER JOIN estatus ON citas.idestatus = estatus.id
-		WHERE citas.fecha = '$fecha' AND citas.idestatus IN ('1', '2', '3', '4')";
+		WHERE citas.fecha = '$fecha'";
 
 	$result = mysqli_query($conn,$query);
 
