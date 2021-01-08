@@ -628,6 +628,7 @@ function actualizarEvento(){
 				if(datos === "REGISTRO ACTUALIZADO CORRECTAMENTE"){
 					//alert("");
 				$("#btnidCerrar").click();
+				getCitasByFecha();
                 }
    			 }
 				
