@@ -27,8 +27,8 @@
 		INNER JOIN citas ON pagos.idcita = citas.id 
 		INNER JOIN metodospago ON pagos.idmetodopago = metodospago.id 
 		INNER JOIN promociones ON pagos.idpromocion = promociones.id
-		WHERE pagos.fecha = '$fecha'
-		ORDER BY hora";
+		WHERE pagos.fechapago = '$fecha'
+		ORDER BY fechapago";
 
 	$result = mysqli_query($conn,$query);
 
