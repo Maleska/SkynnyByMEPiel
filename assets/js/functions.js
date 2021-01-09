@@ -350,7 +350,7 @@ function agregarcita(){
 	$.ajax({
             type:'POST', //aqui puede ser igual get
             url: 'php/Citas/addCita.php',//aqui va tu direccion donde esta tu funcion php
-            data: {nombre:nombre.toUpperCase(),apellido:apellido.toUpperCase(),fecha:newfecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
+            data: {nombre:nombre.toUpperCase(),apellido:apellido.toUpperCase(),fecha:fecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
 		 	//dataType: 'JSON',
 			dataType: 'html',
             success:function(response){
