@@ -1,6 +1,3 @@
 -- UPDATE TABLES
 
 ALTER TABLE skinny.servicios ADD costo FLOAT NOT NULL;
-
-ALTER TABLE skinny.citas MODIFY COLUMN fecha DATE NOT NULL;
-ALTER TABLE skinny.pagos MODIFY COLUMN fechapago DATE NOT NULL;
