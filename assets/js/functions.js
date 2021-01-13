@@ -461,7 +461,7 @@ function getCitasByFecha(){
 	$.ajax({
             type:'post', //aqui puede ser igual get
             url: 'php/Citas/getCitasByFecha.php',//aqui va tu direccion donde esta tu funcion php
-            data: {fecha:newfecha},//aqui tus datos
+            data: {fecha:fecha},//aqui tus datos
 		 	dataType: 'JSON',
             success:function(response){
                		var datos =response;
@@ -482,7 +482,7 @@ function getCitasByFecha(){
                     var product = datos[i];
 					
                     /*target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+ product['servicio'] +"</td><td>"+product['fecha']+"</td><td>"+product['hora']+"</td><td>"+ product['status'] +"</td></tr>");*/
-					target.append("<tr><td style ='margin: 15px;padding: 15px;'>"+ product['hora'] +":00</td><td style ='margin: 15px;padding: 15px;'>"+ product['nombre'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['apellido']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['telefono'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['email']+"</td><td style ='margin: 15px;padding: 15px;'>"+product['servicio']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['status']+"</td><td style ='margin: 15px;padding: 15px;'><input type='button' class='appointment-btn scrollto' value='MODIFICAR' STYLE='background-color: #dccae7;color:black' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td><td><input type='button' value='PAGAR' style='background-color: #dccae7;color:black;margin: 15px;padding: 15px;' class='appointment-btn scrollto'></td></tr>")
+					target.append("<tr><td style ='margin: 15px;padding: 15px;'>"+ product['hora'] +":00</td><td style ='margin: 15px;padding: 15px;'>"+ product['nombre'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['apellido']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['telefono'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['email']+"</td><td style ='margin: 15px;padding: 15px;'>"+product['servicio']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['status']+"</td><td style ='margin: 15px;padding: 15px;'><input type='button' class='appointment-btn scrollto' value='MODIFICAR' STYLE='background-color: #dccae7;color:black' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td><td><input type='button' value='PAGAR' onclick='getCitaByPago("+product['id']+")' data-toggle='modal' data-target='#ModalPagar' style='background-color: #dccae7;color:black;margin: 15px;padding: 15px;' class='appointment-btn scrollto'></td><td></td></tr>")
 					/*target.append("<tr><td>" + product['nombre'] +"</td><td>" + product['apellido'] +"</td><td>" +product['servicio'] + "</td><td>" + product['fecha'] +"</td><td>" + product['hora'] + "</td><td>" + product['status'] +"</td></tr>");*/
 					}
 					//target.append("</tbody>");
@@ -627,5 +627,124 @@ function actualizarEvento(){
                 }
    			 }
 				
+           });
+}
+
+function getReporteRangoFecha(){
+	var desde = $("#txbdateDesde").val();
+	var hasta = $("#txbdateHasta").val();
+	
+	
+		$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/Citas/getCitasByRangoFecha.php',//aqui va tu direccion donde esta tu funcion php
+            data: {startDate:desde,endDate:hasta},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 						
+					ConvertToCSV(response);
+               
+                }
+           });
+	
+	
+}
+
+function getReporteGanancia(){
+	var desde = $("#txbdateDesdeG").val();
+	var hasta = $("#txbdateHastaG").val();
+	
+	
+		$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/Citas/getCitasByRangoFecha.php',//aqui va tu direccion donde esta tu funcion php
+            data: {startDate:desde,endDate:hasta},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 						
+					ConvertToCSV(response);
+               
+                }
+           });
+	
+	
+}
+
+function ConvertToCSV(objArray) {
+            var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+            var str = '';
+
+            for (var i = 0; i < array.length; i++) {
+                var line = '';
+                for (var index in array[i]) {
+                    if (line != '') line += ','
+
+                    line += array[i][index];
+                }
+
+                str += line + '\r\n';
+            }
+			//$("#preRep").html(str);
+				//this trick will generate a temp "a" tag
+			var link = document.createElement("a");    
+			link.id="lnkDwnldLnk";
+
+			//this part will append the anchor tag and remove it after automatic click
+			document.body.appendChild(link);
+
+			var csv = str;  
+			blob = new Blob([csv], { type: 'text/csv' }); 
+			var csvUrl = window.webkitURL.createObjectURL(blob);
+			var filename = 'ReporteRangoFecha.csv';
+			$("#lnkDwnldLnk")
+			.attr({
+				'download': filename,
+				'href': csvUrl
+			}); 
+
+			$('#lnkDwnldLnk')[0].click();    
+			document.body.removeChild(link);
+            //return str;
+        }
+
+function getCitaByPago(){
+	$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/Citas/getCitasById.php',//aqui va tu direccion donde esta tu funcion php
+            data: {citaid:id},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 	
+             document.getElementById('lblNombreP').innerText = datos['nombres'] ;
+					document.getElementById('lblApellidoP').innerText = datos['apellidos'] ;
+					document.getElementById('lblServicioP').innerText = datos['servicio'] ;
+					document.getElementById('lblFechaP').innerText = datos['fecha'] ;
+					document.getElementById('lblHoraP').innerText = datos['hora'] +":00";
+					//document.getElementById('lblNombre').innerText = product['nombres'] ;
+					//document.getElementById('lblstatus').innerText =  datos['status'];
+					//$('#selStatus').val(datos['idstatus']);
+					//$('#selServicio').val(datos['idservicio']);
+					document.getElementById('idCita').innerText=datos['id'];
+					$("#btnCerrMod").click();
+					getCitasByFecha();
+                }
+           });
+}
+
+function addPago(){
+	$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/pagos/addPago.php',//aqui va tu direccion donde esta tu funcion php
+            data: {startDate:desde,endDate:hasta},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 						
+					ConvertToCSV(response);
+               
+                }
            });
 }

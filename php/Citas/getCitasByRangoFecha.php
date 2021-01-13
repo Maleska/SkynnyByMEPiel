@@ -31,6 +31,7 @@
 		WHERE citas.fecha BETWEEN '$startDate' AND '$endDate'
 		ORDER BY fecha, hora";
 
+
 	$result = mysqli_query($conn,$query);
 
 	if($result === false){

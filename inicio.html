@@ -96,12 +96,12 @@
 
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-lg-start">
-    <div class="container" id="divBienvenida" style="margin-top: 90px">
+    <div class="container-fluid" id="divBienvenida" style="margin-top: 90px">
 		<nav class="nav-menu d-none d-lg-block" style="background-color: #2f9cc3;color: white">
         	<ul>
 				<li><a href="#" style="color: white">CITAS</a></li>
-				<li><a href="#" style="color: white">REPORTE DE CITAS</a></li>
-				<li><a href="#" style="color: white">REPORTE DE GANANCIAS</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#ModalRepRanFecha" style="color: white">REPORTE DE CITAS</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#ModalRepGanancia" style="color: white">REPORTE DE GANANCIAS</a></li>
 			</ul>
 		</nav>
       <h1>CITAS AGENDADAS</h1>
@@ -985,9 +985,100 @@
 		  </div>
 		</div>
 	  
+	  <!--  Modal Reporte por rango de fechas   -->
+	   <div class="modal fade" id="ModalRepRanFecha" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel"></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<label><span>DESDE</span></label>
+				  <input type="date" class="form-control-sm" id="txbdateDesdeG" >
+				  <br>
+				  <label><span>HASTA</span></label>
+				  <input type="date" class="form-control-sm" id="txbdateHastaG" >
+				  
+				  <pre id="preRep"></pre>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+				<button type="submit" class="btn btn-primary" style="background-color: #dccae7;" onClick="getReporteRangoFecha()">Buscar</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  <!--  Termina Modal Reporte por rango de fechas   -->
 	  
+	  	  <!--  Modal Reporte por rango de fechas   -->
+	   <div class="modal fade" id="ModalRepGanancia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel"></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<label><span>DESDE</span></label>
+				  <input type="date" class="form-control-sm" id="txbdateDesde" >
+				  <br>
+				  <label><span>HASTA</span></label>
+				  <input type="date" class="form-control-sm" id="txbdateHasta" >
+				  
+				  <pre id="preRep"></pre>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+				<button type="submit" class="btn btn-primary" style="background-color: #dccae7;color: black" onClick="getReporteRangoFecha()">Buscar</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  <!--  Termina Modal Reporte por rango de fechas   -->
 	  
-	  
+	  	  	  <!--  Modal Reporte por rango de fechas   -->
+	   <div class="modal fade" id="ModalPagar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabel"></h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				  <label><span>Nombre</span></label>
+				  <label><span id="lblNombreP"></span></label>
+				  <br>
+				  <label><span>Apellido</span></label>
+				  <label><span id="lblApellidoP"></span></label>
+				  <br>
+				  <label><span>Servicio</span></label>
+				  <label><span id="lblServicioP"></span></label>
+				  <br>
+				  <label><span>Precio</span>$0.0</label>
+				  <label><span id="lblPrecioP"></span></label>
+				  <br>
+				  <label><span>Fecha</span></label>
+				  <label><span id="lblFechaP"></span></label>
+				  <br>
+				  <label><span>Hora</span></label>
+				  <label><span id="lblHoraP"></span></label>
+				  <label id="idCita"></label>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" id="btnCerrMod" data-dismiss="modal">CERRAR</button>
+				<button type="submit" class="btn btn-primary" style="background-color: #dccae7; color: black" onClick="getReporteRangoFecha()">PAGAR</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  <!--  Termina Modal Reporte por rango de fechas   -->
 	  
   </main><!-- End #main -->
 
@@ -1079,6 +1170,10 @@
   <script src="assets/vendor/counterup/counterup.min.js"></script>
   <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	
+	<!--  librerias para descargar excel -->
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript" src="https://github.com/douglascrockford/JSON-js/raw/master/json2.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -1097,6 +1192,8 @@
 			//today = dd + '-' + mm + '-' + yyyy;
 				var now = yyyy +'-' + mm +'-' + dd;
 				document.getElementById("txbdate").valueAsDate = new Date();
+				document.getElementById("txbdateDesde").valueAsDate = new Date();
+				document.getElementById("txbdateHasta").valueAsDate = new Date();
 		/*$('#datetimepicker1').datetimepicker({
 			format: 'dd/mm/yyyy'
 		});*/
