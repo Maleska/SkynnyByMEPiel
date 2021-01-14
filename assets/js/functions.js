@@ -709,7 +709,7 @@ function ConvertToCSV(objArray) {
             //return str;
         }
 
-function getCitaByPago(){
+function getCitaByPago(id){
 	$.ajax({
             type:'post', //aqui puede ser igual get
             url: 'php/Citas/getCitasById.php',//aqui va tu direccion donde esta tu funcion php
