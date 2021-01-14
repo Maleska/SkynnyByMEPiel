@@ -25,7 +25,7 @@
 	}
 
 	$query = 
-		"SELECT id, descripcion
+		"SELECT id, descripcion, costo
 		FROM servicios
 		WHERE active = true";
 
@@ -39,7 +39,8 @@
 	while($row = mysqli_fetch_array($result)){
 		$table []= array(
 			'id' => $row['id'],
-			'descripcion' => $row['descripcion']
+			'descripcion' => $row['descripcion'],
+			'costo' => $row['costo']
 		);
 	}
 
