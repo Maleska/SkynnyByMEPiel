@@ -756,9 +756,7 @@ function addPago(){
             success:function(response){
                		var datos =response;
 				 						
-					//if	(datos === "PAGO GUARDADO EXITOSAMENTE"){
-						 alert(response);
-					//	 }
+					
                
                 }
            });
