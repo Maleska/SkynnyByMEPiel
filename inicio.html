@@ -101,7 +101,7 @@
         	<ul>
 				<li><a href="#" style="color: white">CITAS</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#ModalRepRanFecha" style="color: white">REPORTE DE CITAS</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#ModalRepGanancia" style="color: white">REPORTE DE GANANCIAS</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#ModalRepGanancia" style="color: white" hidden="">REPORTE DE GANANCIAS</a></li>
 			</ul>
 		</nav>
       <h1>CITAS AGENDADAS</h1>
@@ -118,6 +118,7 @@
 					<th>TELÉFONOS</th>
 					<th>E-MAIL</th>
 					<th>SERVICIO</th>
+					<th>COSTO</th>
 					<th>ESTATUS</th>
 					<th>MODIFICAR</th>
 					<th>PAGAR</th>
@@ -1046,34 +1047,37 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel"></h5>
+				<h5 class="modal-title" id="exampleModalLabel">PAGAR SERVICIO</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
 			  </div>
 			  <div class="modal-body">
-				  <label><span>Nombre</span></label>
+				  <label><span style="font-weight: bold">Nombre</span></label>
 				  <p><label><span id="lblNombreP"></span></label></p>
-				  <br>
-				  <label><span>Apellido</span></label>
+				  
+				  <label><span style="font-weight: bold">Apellido</span></label>
 				  <p><label><span id="lblApellidoP"></span></label></p>
-				  <br>
-				  <label><span>Servicio</span></label>
+				  
+				  <label><span style="font-weight: bold">Servicio</span></label>
 				  <p><label><span id="lblServicioP"></span></label></p>
-				  <br>
-				  <label><span>Precio</span>$0.0</label>
-				  <p><label><span id="lblPrecioP"></span></label></p>
-				  <br>
-				  <label><span>Fecha</span></label>
+				  
+				  <label><span style="font-weight: bold">Precio</span></label>
+				  <p><label><span id="lblPrecioP">$0.0</span></label></p>
+				  
+				  <label><span style="font-weight: bold">Fecha</span></label>
 				  <p><label><span id="lblFechaP"></span></label></p>
-				  <br>
-				  <label><span>Hora</span></label>
+				  
+				  <label><span style="font-weight: bold">Hora</span></label>
 				  <p><label><span id="lblHoraP"></span></label></p>
-				  <label id="idCita"></label>
+				  <label><span style="font-weight: bold">MÉTODO DE PAGO</span></label>
+				  <p><select id="selMetPago" class="form-control"></select></p>
+				  <label id="idCita" hidden=""></label>
+				  <label id="idSer" hidden=""></label>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" id="btnCerrMod" data-dismiss="modal">CERRAR</button>
-				<button type="submit" class="btn btn-primary" style="background-color: #dccae7; color: black" onClick="">PAGAR</button>
+				<button type="submit" class="btn btn-primary" style="background-color: #dccae7; color: black" onClick="addPAgo()">PAGAR</button>
 			  </div>
 			</div>
 		  </div>

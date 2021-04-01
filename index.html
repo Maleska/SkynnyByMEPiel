@@ -61,7 +61,7 @@
   <header id="header" class="">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="#"><img src="assets/img/MEPiel/Logo.jpg" style="width: 250px"/> </a></h1>
+      <h1 class="logo mr-auto"><a href="#"><img alt="" src="assets/img/MEPiel/Logo.jpg" style="width: 250px"/> </a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -70,9 +70,9 @@
           <!--<li class="active"><a href="#">INICIO</a></li>-->
           <li class="drop-down"><a href="#">PAQUETES</a>
 			<ul>
-				<li><a href="#">Paquete 1</a></li>
-				<li><a href="#">Paquete 2</a></li>
-				<li><a href="#">Paquete 3</a></li>
+				<li><a href="#" onClick="showsections(7)">Paquete 1</a></li>
+				<li><a href="#" onClick="showsections(8)">Paquete 2</a></li>
+				<li><a href="#" onClick="showsections(9)">Paquete 3</a></li>
 			</ul>
 		   </li>
          <li class="drop-down"><a href="#">SERVICIOS</a>
@@ -126,17 +126,17 @@
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
 				<center>
-			  <img class="d-block w-50" style="height: 75%;width: 75%" src="assets/images/CARBOXITERAÍA.jpg" alt="First slide">
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/servicios/pi2.jpg" alt="First slide">
 					</center>
 			</div>
 			<div class="carousel-item">
 				<center>
-			  <img class="d-block w-50" src="assets/images/ELECTRODOS.jpg" alt="Second slide">
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/servicios/servicio1.jpg" alt="Second slide">
 					</center>
 			</div>
 			<div class="carousel-item">
 				<center>
-			  <img class="d-block w-50" src="assets/images/ENZIMAS.jpg" alt="Third slide">
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/images/ENZIMAS.jpg" alt="Third slide">
 					</center>
 			</div>
 		  </div>
@@ -157,22 +157,23 @@
 	<!-- ======= Hero Section ======= -->
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-start">
-
     <div class="container align-items-center" id="divBienvenida" style="height: auto" >
-		<br><br><br>
 		<h1>Bienvenido a Skinny by M.E.Piel</h1>
       <!--<h1>Welcome to Medilab</h1>
       <h2>We are team of talanted designers making websites with Bootstrap</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
     </div>
 	  
-	<div class="container overflow-auto" id="radiofrecuencia" style="display: none; top:50px">
-	<br><br><br><br>
+	<div class="container-fluid
+				" id="radiofrecuencia" style="display: none;height: 50%">
+	<br>
 	  <h1>Radiofrecuencia</h1>
-		<div class="row">
-		<img src="assets/images/radiofrecuencia.jpg" class="col-md-4" style="width: 50%;height: auto;margin-top: auto">
+		<div class="row" style="height: 75%">
+			<div class="col-md-6">
+		<img alt="" src="assets/images/radiofrecuencia.jpg" class="col-md-4" style="width: 75%;height: auto;margin-top: auto">
+				</div>
 		<!--</div>-->
-		<!--<div id="divvideo" class="col-md-4 col-md-offset-4">-->
+		<div id="divvideo" class="col-md-4 col-md-offset-4">
 			<video controls
 				src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
 				poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
@@ -186,42 +187,59 @@
 			<br>
 			<br>
 		</div>
+		</div>
 		<br>
 		<br>
 	</div>
 	  <div class="container" id="Maderoterapia" style="display: none;ne; top:50px">
-		  <br><br><br><br>
+		  <br>
 	  <h1>Maderoterapia</h1>
 		  <div class="col-4">
-		<img src="assets/images/maderoterapia.jpg" style="width: 100%;height: 100%">
+		<img alt="" src="assets/images/maderoterapia.jpg" style="width: 100%;height: 100%">
 		</div>
 	</div>
 	 <div class="container" id="Carboxiterapia" style="display: none; top:50px">
-		<br><br><br>
+		<br>
 	  <h1>Carboxiterapia</h1>
 		 <div class="col-4">
-		<img src="assets/images/CARBOXITERAÍA.jpg" style="width: 100%;height: 100%;">
+		<img alt="" src="assets/images/CARBOXITERAÍA.jpg" style="width: 100%;height: 100%;">
 		</div>
 	</div>
 	 <div class="container" id="Ultrasonido" style="display: none;ne; top:50px">
-		<br><br><br>
+		<br> 
 	  <h1>Ultrasonido</h1>
 		 <div class="col-4">
-		<img src="assets/images/ULTRASONIDO.jpg" style="width: 100%;height: 100%">
+		<img alt="" src="assets/images/ULTRASONIDO.jpg" style="width: 100%;height: 100%">
 		</div>
 	</div>
 	  <div class="container" id="Enzimas" style="display: none;ne; top:50px">
-		<br><br><br>
+		<br>
 	  <h1>Enzimas</h1>
 		  <div class="col-4">
-		<img src="assets/images/ENZIMAS.jpg" style="width: 100%;height: 100%">
+		<img alt="" src="assets/images/ENZIMAS.jpg" style="width: 100%;height: 100%">
 		</div>
 	</div>
-	 <div class="container" id="Electrodos" style="display: none;ne; top:50px">
-		<br><br><br>
+	 <div class="container" id="Electrodos" style="display: none; top:50px">
+		<br>
 	  <h1>Electrodos</h1>
 		 <div class="col-4">
-		<img src="assets/images/ELECTRODOS.jpg" style="width: 100%;height: 100%">
+		<img alt="" src="assets/images/ELECTRODOS.jpg" style="width: 100%;height: 100%">
+		</div>
+	</div>
+	  <!-- Servicios -->
+	  <div class="container" id="paquete1" style="display: none; top:50px">
+		<div class="col-8">
+		<img alt="" src="assets/img/servicios/PAQUETES SKINNY BY_2-01 (1).jpg" style="width: 100%;height: 100%">
+		</div>
+	</div>
+	  <div class="container" id="paquete2" style="display: none; top:50px">
+		<div class="col-8">
+		<img src="assets/img/servicios/PAQUETES SKINNY BY_2-02 (1).jpg" alt="" style="width: 100%;height: 100%">
+		</div>
+	</div>
+	  <div class="container" id="paquete3" style="display: none; top:50px">
+		<div class="col-12">
+		<img src="assets/img/servicios/PAQUETES SKINNY BY_2-03 (1).jpg" alt="" style="width: 100%;height: 100%">
 		</div>
 	</div>
 	  
@@ -315,7 +333,7 @@
     </section><!-- End About Section -->
 
     <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
+    <section id="counts" class="counts" style="display: none">
       <div class="container">
 
         <div class="row">
@@ -997,7 +1015,7 @@
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary" style="background-color: #dccae7">Iniciar sesión</button>
+				<button type="submit" class="btn btn-primary" style="background-color: #dccae7;color:black">Iniciar sesión</button>
 			  </div>
 			</div>
 		  </div>
@@ -1169,7 +1187,7 @@
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>
-				<button type="button" onClick="agregarcita()" style="background-color: #dccae7" class="btn btn-primary">Hacer cita</button>
+				<button type="button" onClick="agregarcita()" style="background-color: #dccae7;color:black" class="btn btn-primary">Hacer cita</button>
 			  </div>
 			</div>
 		  </div>
@@ -1181,18 +1199,18 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabelnam">CITA</h5>
+				<h5 class="modal-title" id="exampleModalLabelnam1">CITA</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
 			  </div>
 			  <div class="modal-body">
 				 <span style="font-weight: bolder;text-transform: uppercase">CITA AGENDADA CORRECTAMENTE</span>
-				  <label id=lbldatoscitas></label>
+				  <label id="lbldatoscitas"></label>
 				  <p><span>FAVOR DE PRESENTARSE CON SU INE A RECEPCION</span></p>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita1">Cerrar</button>
 				<!--<button type="button" onClick="agregarcita()" class="btn btn-primary">Hacer cita</button>-->
 			  </div>
 			</div>
@@ -1202,22 +1220,15 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" style="display: none">
 	<br>
     <div class="footer-top">
       <div class="container">
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h1 class="logo mr-auto"><a href="#"><img src="assets/img/MEPiel/Logo.jpg" style="width: 250px"/> </a></h1>
-			  <!--<h3>Skinny by M.E.Piel</h3>-->
-            <!--<p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>-->
+            <h1 class="logo mr-auto"><a href="#"><img alt="" src="assets/img/MEPiel/Logo.jpg" style="width: 250px"/> 
+				</a></h1>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
@@ -1251,13 +1262,13 @@
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter" style="display: none">
+          <!--<div class="col-lg-4 col-md-6 footer-newsletter" style="display: none">
             <h4>Join Our Newsletter</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
-          </div>
+          </div>-->
 
         </div>
       </div>
