@@ -1,0 +1,10 @@
+-- UPDATE TABLES
+
+ALTER TABLE skinny.servicios ADD costo FLOAT NOT NULL;
+
+ALTER TABLE skinny.citas MODIFY COLUMN fecha DATE NOT NULL;
+ALTER TABLE skinny.pagos MODIFY COLUMN fechapago DATE NOT NULL;
+
+ALTER TABLE skinny.citas CHANGE idmedio idmedio BIGINT NOT NULL AFTER hora;
+ALTER TABLE skinny.citas ADD idmedio BIGINT NOT NULL;
+ALTER TABLE skinny.citas ADD CONSTRAINT citas_FK_3 FOREIGN KEY (idmedio) REFERENCES skinny.medios(id) ON DELETE RESTRICT ON UPDATE RESTRICT;
