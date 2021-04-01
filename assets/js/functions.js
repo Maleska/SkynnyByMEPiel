@@ -122,7 +122,81 @@ function showsections (id){
 				document.getElementById("Electrodos").style.display="inline";
 			}
 			break;
-			
+		case 7:
+			if ($("#paquete1").is(":visible")) {
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="inline";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
+			}else{
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="none";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="inline";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
+			}
+			break;
+			case 8:
+			if ($("#paquete2").is(":visible")) {
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="inline";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
+			}else{
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="none";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="inline";
+				document.getElementById("paquete3").style.display ="none";
+			}
+			break;
+			case 9:
+			if ($("#paquete3").is(":visible")) {
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="inline";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
+			}else{
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="none";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="inline";
+			}
+			break;
 			 }
 	
 	
@@ -756,7 +830,13 @@ function addPago(){
             success:function(response){
                		var datos =response;
 				 						
+<<<<<<< Updated upstream
 					
+=======
+					//if	(datos === "PAGO GUARDADO EXITOSAMENTE"){
+						 alert(response);
+					//	 }
+>>>>>>> Stashed changes
                
                 }
            });

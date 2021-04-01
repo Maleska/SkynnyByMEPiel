@@ -22,7 +22,11 @@
 	$fecha = $_POST['fecha'];
 
 	$query = 
+<<<<<<< Updated upstream
 		"SELECT citas.id, users.nombres, users.apellidos, users.telefono, users.email, servicios.descripcion AS 'servicio', servicios.costo AS 'costo', citas.fecha, citas.hora, estatus.descripcion AS 'status' 
+=======
+		"SELECT citas.id, users.nombres, users.apellidos,servicios.id AS 'idServicio', users.telefono, users.email, servicios.descripcion AS 'servicio', servicios.costo AS 'costo', citas.fecha, citas.hora, estatus.descripcion AS 'status' 
+>>>>>>> Stashed changes
 		FROM citas
 		INNER JOIN users ON citas.iduser = users.id 
 		INNER JOIN servicios ON citas.idservicio = servicios.id 
@@ -48,7 +52,8 @@
 			'fecha' => $row['fecha'],
 			'hora' => $row['hora'],
 			'email' => $row['email'],
-			'status' => $row['status']
+			'status' => $row['status'],
+			'idservicio' => $row['idServicio']
 		);
 	}
 
