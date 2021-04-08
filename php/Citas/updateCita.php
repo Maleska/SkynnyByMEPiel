@@ -22,11 +22,12 @@ if( $conn ) {
 	$fecha = $_POST['fecha'];
 	$hora = $_POST['hora'];
 	$estatus = $_POST['estatus'];
+	$medio = $_POST['medio'];
 
 	if(isset($servicio)){
 	
 	$query = "UPDATE citas
-				SET idservicio = $servicio, fecha = '$fecha', hora = '$hora', idestatus = $estatus
+				SET idservicio = $servicio, fecha = '$fecha', hora = '$hora', idestatus = $estatus, idmedio = = $medio
 				WHERE id = $citaid";
 	//echo($query);
 	

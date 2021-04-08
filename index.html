@@ -61,7 +61,7 @@
   <header id="header" class="">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo mr-auto"><a href="#"><img src="assets/img/MEPiel/Logo.jpg" style="width: 250px"/> </a></h1>
+      <h1 class="logo mr-auto"><a href="#"><img alt="" src="assets/img/MEPiel/Logo.jpg" style="width: 250px"/> </a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -70,9 +70,9 @@
           <!--<li class="active"><a href="#">INICIO</a></li>-->
           <li class="drop-down"><a href="#">PAQUETES</a>
 			<ul>
-				<li><a href="#">Paquete 1</a></li>
-				<li><a href="#">Paquete 2</a></li>
-				<li><a href="#">Paquete 3</a></li>
+				<li><a href="#" onClick="showsections(7)">Paquete 1</a></li>
+				<li><a href="#" onClick="showsections(8)">Paquete 2</a></li>
+				<li><a href="#" onClick="showsections(9)">Paquete 3</a></li>
 			</ul>
 		   </li>
          <li class="drop-down"><a href="#">SERVICIOS</a>
@@ -85,7 +85,7 @@
 				  <li><a href="#Electrodos" onClick="showsections(6)">ELECTRODOS</a></li>
                 </ul>
 			</li>
-			<li><a href="#">POLITICAS DE PRIVACIDAD</a></li>
+			<li><a href="#" data-toggle="modal" data-target="#ModalPoliticas">POLITICAS DE PRIVACIDAD</a></li>
           <!--<li><a href="#departments">Departments</a></li>
           <li><a href="#doctors">Doctors</a></li>
           <li class="drop-down"><a href="">Drop Down</a>
@@ -122,21 +122,63 @@
 			<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 			<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
+			  <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
 		  </ol>
 		  <div class="carousel-inner">
 			<div class="carousel-item active">
 				<center>
-			  <img class="d-block w-50" style="height: 75%;width: 75%" src="assets/images/CARBOXITERAÍA.jpg" alt="First slide">
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/Nvas-prpstas-SkinnyBy.jpg" alt="First slide">
 					</center>
 			</div>
 			<div class="carousel-item">
 				<center>
-			  <img class="d-block w-50" src="assets/images/ELECTRODOS.jpg" alt="Second slide">
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/Nvas-prpstas-SkinnyBy1.jpg" alt="Second slide">
 					</center>
 			</div>
 			<div class="carousel-item">
 				<center>
-			  <img class="d-block w-50" src="assets/images/ENZIMAS.jpg" alt="Third slide">
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/Nvas-prpstas-SkinnyBy2.jpg" alt="Third slide">
+					</center>
+			</div>
+			  <div class="carousel-item">
+				<center>
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/PAQUETES SKINNY BY_2-04.jpg" alt="Fourth slide">
+					</center>
+			</div>
+			  <div class="carousel-item">
+				<center>
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/PAQUETES SKINNY BY_2-05.jpg" alt="cinco slide">
+					</center>
+			</div>
+			    <div class="carousel-item">
+				<center>
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/PAQUETES SKINNY BY_2-06.jpg" alt="seis slide">
+					</center>
+			</div>
+			    <div class="carousel-item">
+				<center>
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/pi1.jpg" alt="siete slide">
+					</center>
+			</div>
+			    <div class="carousel-item">
+				<center>
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/pi2.jpg" alt="ocho slide">
+					</center>
+			</div>
+			    <div class="carousel-item">
+				<center>
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/pi3.jpg" alt="nueve slide">
+					</center>
+			</div>
+			    <div class="carousel-item">
+				<center>
+			  <img class="d-block w-25" style="height: 40%;width: 50%" src="assets/img/MEPiel/TOMBOLA SKINNY.jpg" alt="diez slide">
 					</center>
 			</div>
 		  </div>
@@ -157,22 +199,23 @@
 	<!-- ======= Hero Section ======= -->
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-start">
-
     <div class="container align-items-center" id="divBienvenida" style="height: auto" >
-		<br><br><br>
 		<h1>Bienvenido a Skinny by M.E.Piel</h1>
       <!--<h1>Welcome to Medilab</h1>
       <h2>We are team of talanted designers making websites with Bootstrap</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>-->
     </div>
 	  
-	<div class="container overflow-auto" id="radiofrecuencia" style="display: none; top:50px">
-	<br><br><br><br>
+	<div class="container-fluid
+				" id="radiofrecuencia" style="display: none;height: 50%">
+	<br>
 	  <h1>Radiofrecuencia</h1>
-		<div class="row">
-		<img src="assets/images/radiofrecuencia.jpg" class="col-md-4" style="width: 50%;height: auto;margin-top: auto">
+		<div class="row" style="height: 75%">
+			<div class="col-md-6">
+		<img alt="" src="assets/images/radiofrecuencia.jpg" class="col-md-4" style="width: 75%;height: auto;margin-top: auto">
+				</div>
 		<!--</div>-->
-		<!--<div id="divvideo" class="col-md-4 col-md-offset-4">-->
+		<div id="divvideo" class="col-md-4 col-md-offset-4">
 			<video controls
 				src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
 				poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
@@ -186,42 +229,59 @@
 			<br>
 			<br>
 		</div>
+		</div>
 		<br>
 		<br>
 	</div>
 	  <div class="container" id="Maderoterapia" style="display: none;ne; top:50px">
-		  <br><br><br><br>
+		  <br>
 	  <h1>Maderoterapia</h1>
 		  <div class="col-4">
-		<img src="assets/images/maderoterapia.jpg" style="width: 100%;height: 100%">
+		<img alt="" src="assets/images/maderoterapia.jpg" style="width: 100%;height: 100%">
 		</div>
 	</div>
 	 <div class="container" id="Carboxiterapia" style="display: none; top:50px">
-		<br><br><br>
+		<br>
 	  <h1>Carboxiterapia</h1>
 		 <div class="col-4">
-		<img src="assets/images/CARBOXITERAÍA.jpg" style="width: 100%;height: 100%;">
+		<img alt="" src="assets/images/CARBOXITERAÍA.jpg" style="width: 100%;height: 100%;">
 		</div>
 	</div>
 	 <div class="container" id="Ultrasonido" style="display: none;ne; top:50px">
-		<br><br><br>
+		<br> 
 	  <h1>Ultrasonido</h1>
 		 <div class="col-4">
-		<img src="assets/images/ULTRASONIDO.jpg" style="width: 100%;height: 100%">
+		<img alt="" src="assets/images/ULTRASONIDO.jpg" style="width: 100%;height: 100%">
 		</div>
 	</div>
 	  <div class="container" id="Enzimas" style="display: none;ne; top:50px">
-		<br><br><br>
+		<br>
 	  <h1>Enzimas</h1>
 		  <div class="col-4">
-		<img src="assets/images/ENZIMAS.jpg" style="width: 100%;height: 100%">
+		<img alt="" src="assets/images/ENZIMAS.jpg" style="width: 100%;height: 100%">
 		</div>
 	</div>
-	 <div class="container" id="Electrodos" style="display: none;ne; top:50px">
-		<br><br><br>
+	 <div class="container" id="Electrodos" style="display: none; top:50px">
+		<br>
 	  <h1>Electrodos</h1>
 		 <div class="col-4">
-		<img src="assets/images/ELECTRODOS.jpg" style="width: 100%;height: 100%">
+		<img alt="" src="assets/images/ELECTRODOS.jpg" style="width: 100%;height: 100%">
+		</div>
+	</div>
+	  <!-- Servicios -->
+	  <div class="container" id="paquete1" style="display: none; top:50px">
+		<div class="col-8">
+		<img alt="" src="assets/img/MEPiel/PAQUETES SKINNY BY_2-01.jpg" style="width: 100%;height: 100%">
+		</div>
+	</div>
+	  <div class="container" id="paquete2" style="display: none; top:50px">
+		<div class="col-8">
+		<img src="assets/img/MEPiel/PAQUETES SKINNY BY_2-02.jpg" alt="" style="width: 100%;height: 100%">
+		</div>
+	</div>
+	  <div class="container" id="paquete3" style="display: none; top:50px">
+		<div class="col-12">
+		<img src="assets/img/MEPiel/PAQUETES SKINNY BY_2-03.jpg" alt="" style="width: 100%;height: 100%">
 		</div>
 	</div>
 	  
@@ -315,7 +375,7 @@
     </section><!-- End About Section -->
 
     <!-- ======= Counts Section ======= -->
-    <section id="counts" class="counts">
+    <section id="counts" class="counts" style="display: none">
       <div class="container">
 
         <div class="row">
@@ -997,7 +1057,7 @@
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-				<button type="submit" class="btn btn-primary" style="background-color: #dccae7">Iniciar sesión</button>
+				<button type="submit" class="btn btn-primary" style="background-color: #dccae7;color:black">Iniciar sesión</button>
 			  </div>
 			</div>
 		  </div>
@@ -1169,7 +1229,7 @@
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>
-				<button type="button" onClick="agregarcita()" style="background-color: #dccae7" class="btn btn-primary">Hacer cita</button>
+				<button type="button" onClick="agregarcita()" style="background-color: #dccae7;color:black" class="btn btn-primary">Hacer cita</button>
 			  </div>
 			</div>
 		  </div>
@@ -1181,18 +1241,54 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabelnam">CITA</h5>
+				<h5 class="modal-title" id="exampleModalLabelnam1">CITA</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
 			  </div>
 			  <div class="modal-body">
 				 <span style="font-weight: bolder;text-transform: uppercase">CITA AGENDADA CORRECTAMENTE</span>
-				  <label id=lbldatoscitas></label>
+				  <label id="lbldatoscitas"></label>
 				  <p><span>FAVOR DE PRESENTARSE CON SU INE A RECEPCION</span></p>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita1">Cerrar</button>
+				<!--<button type="button" onClick="agregarcita()" class="btn btn-primary">Hacer cita</button>-->
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  
+	  
+	  <!-- Modal politicas de privacidad -->
+	    <div class="modal fade" id="ModalPoliticas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabelnam1">Politicasde privacidad</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				<span> Con fundamento en los artículos 15 y 16 de la Ley Federal de Protección de Datos Personales en Posesión de Particulares hacemos de su conocimiento que <span style="font-weight: bold">“CENTRO DERMATOLOGICO M. E. PIEL.”</span> , con domicilio en Manuel Acuña #2880 A, Prados de Providencia, Guadalajara, Jal. C.P.:44670 es responsable de recabar sus datos personales, del uso que se le dé a los mismos y de su protección.</span><br>
+<span>Su información personal será utilizada para las siguientes finalidades: proveer los servicios y productos que ha solicitado; notificarle sobre nuevos servicios o productos que tengan relación con los ya contratados o adquiridos; comunicarle sobre cambios en los mismos; elaborar estudios y programas que son necesarios para determinar hábitos de consumo; realizar evaluaciones periódicas de nuestros productos y servicios a efecto de mejorar la calidad de los mismos; evaluar la calidad del servicio que brindamos, y en general, para dar cumplimiento a las obligaciones que hemos contraído con usted.</span><br>
+
+<span>Para las finalidades antes mencionadas, requerimos obtener los siguientes datos personales:</span></br>
+<p>• Paola Orozco Sánchez</p>
+<p>• (33) 18925225 </p>
+				  <p>• <a href="mailto:skinnybymx@gmail.com"> skinnybymx@gmail.com</a></p><br>
+<span>Es importante informarle que usted tiene derecho al Acceso, Rectificación y Cancelación de sus datos personales, a Oponerse al tratamiento de los mismos o a revocar el consentimiento que para dicho fin nos haya otorgado.</span><br>
+<span>Para ello, es necesario que envíe la solicitud en los términos que marca la Ley en su Art. 29 a Departamento de Protección de Datos Personales., responsable de nuestro Departamento de Protección de Datos Personales, ubicado en Manuel Acuña #2880 A, Prados de Providencia, Guadalajara, Jal. C.P.:44670  o bien, se comunique al teléfono “(33) 18925225” o vía correo electrónico a <span style="font-weight: bold"><a href="mailto:skinnybymx@gmail.com">“skinnybymx@gmail.com”</a></span>, el cual solicitamos confirme vía telefónica para garantizar su correcta recepción.</span><br>
+<span>En algunos casos, podemos usar Cookies para recopilar información que permite la identificación personal, o que podría pasar a permitir la identificación personal, si la combinamos con otra información.
+Mientras navegas en Skinny las redes de publicidad en línea con las que trabajamos pueden colocar cookies anónimas en el equipo, y el uso de tecnologías similares, con el fin de entender sus intereses en función de sus (anónimos) las actividades en línea, y así adaptar anuncios más relevantes a usted.
+En caso de que no desee de recibir mensajes promocionales de nuestra parte, puede enviarnos su solicitud por medio de la dirección electrónica: <span style="font-weight: bold"><a href="mailto:skinnybymx@gmail.com">skinnybymx@gmail.com</a></span></span><br>
+<span>Importante: Cualquier modificación a este Aviso de Privacidad podrá consultarlo en </span><a href="www.protecciondedatospersonales.org/">www.protecciondedatospersonales.org/</a>
+
+
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita1">Cerrar</button>
 				<!--<button type="button" onClick="agregarcita()" class="btn btn-primary">Hacer cita</button>-->
 			  </div>
 			</div>
@@ -1202,22 +1298,15 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer">
+  <footer id="footer" style="display: none">
 	<br>
     <div class="footer-top">
       <div class="container">
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-contact">
-            <h1 class="logo mr-auto"><a href="#"><img src="assets/img/MEPiel/Logo.jpg" style="width: 250px"/> </a></h1>
-			  <!--<h3>Skinny by M.E.Piel</h3>-->
-            <!--<p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>-->
+            <h1 class="logo mr-auto"><a href="#"><img alt="" src="assets/img/MEPiel/Logo.jpg" style="width: 250px"/> 
+				</a></h1>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
@@ -1251,13 +1340,13 @@
             </ul>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter" style="display: none">
+          <!--<div class="col-lg-4 col-md-6 footer-newsletter" style="display: none">
             <h4>Join Our Newsletter</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
-          </div>
+          </div>-->
 
         </div>
       </div>

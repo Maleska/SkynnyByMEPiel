@@ -122,7 +122,81 @@ function showsections (id){
 				document.getElementById("Electrodos").style.display="inline";
 			}
 			break;
-			
+		case 7:
+			if ($("#paquete1").is(":visible")) {
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="inline";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
+			}else{
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="none";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="inline";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
+			}
+			break;
+			case 8:
+			if ($("#paquete2").is(":visible")) {
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="inline";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
+			}else{
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="none";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="inline";
+				document.getElementById("paquete3").style.display ="none";
+			}
+			break;
+			case 9:
+			if ($("#paquete3").is(":visible")) {
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="inline";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
+			}else{
+				document.getElementById("radiofrecuencia").style.display = "none";
+				document.getElementById("divBienvenida").style.display="none";
+				document.getElementById("Maderoterapia").style.display="none";
+				document.getElementById("Carboxiterapia").style.display="none";
+				document.getElementById("Ultrasonido").style.display="none";
+				document.getElementById("Enzimas").style.display="none";
+				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="inline";
+			}
+			break;
 			 }
 	
 	
@@ -301,6 +375,7 @@ function selectTime(){
 function agregarcita(){
 	"use strict";
 	
+	var splitServicio=[];
 	var nombre = $("#nombre").val();
 	var apellido = $("#apellido").val();
 	var fecha = $("#fecha").val();
@@ -340,17 +415,18 @@ function agregarcita(){
 	}
 	
 	var split= fecha.split('-');
+	splitServicio = valor.split('-');
 	
 	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
 	document.getElementById('lbldatoscitas').innerHTML = "";
-	document.getElementById('lbldatoscitas').innerHTML ="CITA AGENDADA PARA: " + nombre +" " + apellido + " FECHA " + fecha + " HORA " + hora +":00 \n PAGO EN RECEPCIÓN \n METODO DE PAGO EN EFECTVO Y TARJETA DE CREDITO - DÉDITO";
+	document.getElementById('lbldatoscitas').innerHTML ="CITA AGENDADA PARA: " + nombre.toUpperCase() +" " + apellido + " FECHA " + fecha + " HORA " + hora +":00 \n PAGO EN RECEPCIÓN \n METODO DE PAGO EN EFECTVO Y TARJETA DE CREDITO - DÉDITO";
 	
 	if(ban === true){
 	
 	$.ajax({
             type:'POST', //aqui puede ser igual get
             url: 'php/Citas/addCita.php',//aqui va tu direccion donde esta tu funcion php
-            data: {nombre:nombre.toUpperCase(),apellido:apellido.toUpperCase(),fecha:fecha,hora:hora,telefono:telefono,email:email,servicio:valor},//aqui tus datos
+            data: {nombre:nombre.toUpperCase(),apellido:apellido.toUpperCase(),fecha:fecha,hora:hora,telefono:telefono,email:email,servicio:splitServicio[0]},//aqui tus datos
 		 	//dataType: 'JSON',
 			dataType: 'html',
             success:function(response){
@@ -482,7 +558,7 @@ function getCitasByFecha(){
                     var product = datos[i];
 					
                     /*target.append("<tr><td>"+ product['nombre'] +"</td><td>"+ product['apellido'] +"</td><td>"+ product['servicio'] +"</td><td>"+product['fecha']+"</td><td>"+product['hora']+"</td><td>"+ product['status'] +"</td></tr>");*/
-					target.append("<tr><td style ='margin: 15px;padding: 15px;'>"+ product['hora'] +":00</td><td style ='margin: 15px;padding: 15px;'>"+ product['nombre'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['apellido']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['telefono'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['email']+"</td><td style ='margin: 15px;padding: 15px;'>"+product['servicio']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['status']+"</td><td style ='margin: 15px;padding: 15px;'><input type='button' class='appointment-btn scrollto' value='MODIFICAR' STYLE='background-color: #dccae7;color:black' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td><td><input type='button' value='PAGAR' onclick='getCitaByPago("+product['id']+")' data-toggle='modal' data-target='#ModalPagar' style='background-color: #dccae7;color:black;margin: 15px;padding: 15px;' class='appointment-btn scrollto'></td><td></td></tr>")
+					target.append("<tr><td style ='margin: 15px;padding: 15px;'>"+ product['hora'] +":00</td><td style ='margin: 15px;padding: 15px;'>"+ product['nombre'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['apellido']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['telefono'] +"</td><td style ='margin: 15px;padding: 15px;'>"+product['email']+"</td><td style ='margin: 15px;padding: 15px;'>"+product['servicio']+"</td><td style ='margin: 15px;padding: 15px;'> $ "+product['costo']+"</td><td style ='margin: 15px;padding: 15px;'>"+ product['status']+"</td><td style ='margin: 15px;padding: 15px;'><input type='button' class='appointment-btn scrollto' value='MODIFICAR' STYLE='background-color: #dccae7;color:black' data-toggle='modal' data-target='#exampleModal' onclick='cargarInfo("+product['id']+")'> </td><td><input type='button' value='PAGAR' onclick='getCitaByPago("+product['id']+")' data-toggle='modal' data-target='#ModalPagar' style='background-color: #dccae7;color:black;margin: 15px;padding: 15px;' class='appointment-btn scrollto'></td></tr>")
 					/*target.append("<tr><td>" + product['nombre'] +"</td><td>" + product['apellido'] +"</td><td>" +product['servicio'] + "</td><td>" + product['fecha'] +"</td><td>" + product['hora'] + "</td><td>" + product['status'] +"</td></tr>");*/
 					}
 					//target.append("</tbody>");
@@ -553,7 +629,7 @@ function getServicios(){
                    
                     var product = datos[i];
 					
-						listaServicios.push("<option value='"+product['id']+"'>"+product['descripcion']+"</option>");
+						listaServicios.push("<option value='"+product['id']+"-"+product['costo']+"'>"+product['descripcion']+"</option>");
 				
 					}
 				 servicios.innerHTML = listaServicios;
@@ -723,28 +799,68 @@ function getCitaByPago(id){
 					document.getElementById('lblServicioP').innerText = datos['servicio'] ;
 					document.getElementById('lblFechaP').innerText = datos['fecha'] ;
 					document.getElementById('lblHoraP').innerText = datos['hora'] +":00";
-					//document.getElementById('lblNombre').innerText = product['nombres'] ;
+					document.getElementById('lblPrecioP').innerText = datos['costo'] ;
 					//document.getElementById('lblstatus').innerText =  datos['status'];
 					//$('#selStatus').val(datos['idstatus']);
 					//$('#selServicio').val(datos['idservicio']);
 					document.getElementById('idCita').innerText=datos['id'];
+				document.getElementById('idSer').innerText=datos['idservicio'];
 					$("#btnCerrMod").click();
 					getCitasByFecha();
+					loadMetodoPago();
                 }
            });
 }
 
 function addPago(){
+	var idcita = document.getElementById('idCita').innerText;
+	var e = document.getElementById("selMetPago");
+	var valMetPag = e.options[e.selectedIndex].value;
+	var idser = document.getElementById('idSer').innerText;
+	var total =document.getElementById('lblPrecioP').innerText
+	var fechapago = new Date();
+	var descuento =0;
+	
+	
 	$.ajax({
             type:'post', //aqui puede ser igual get
             url: 'php/pagos/addPago.php',//aqui va tu direccion donde esta tu funcion php
-            data: {startDate:desde,endDate:hasta},//aqui tus datos
-		 	dataType: 'JSON',
+            data: {idcita:idcita,idmetodopago:valMetPag,idpromocion:1,total:total,fechapago:fechapago,descuento:descuento},//aqui tus datos
+		 	dataType: 'html',
             success:function(response){
                		var datos =response;
 				 						
-					ConvertToCSV(response);
+					//if	(datos === "PAGO GUARDADO EXITOSAMENTE"){
+						 alert(response);
+					//	 }
                
                 }
+           });
+}
+
+function loadMetodoPago(){
+	var status = document.getElementById("selMetPago");
+	listaMetodsP = [];
+		$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/metodos_pago/getMetodosPagos.php',//aqui va tu direccion donde esta tu funcion php
+            //data: {citaid:id},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 	
+                	//servicios.append('<option value=\'0\'> -- SELECCIONE UNA OPCIÓN -- </option>');
+				listaMetodsP.push("<option value=\'0\'> -- SELECCIONE UNA OPCIÓN -- </option>");
+               for (var i = 0; i < datos.length; i++) {
+                   
+                    var product = datos[i];
+					
+						listaMetodsP.push("<option value='"+product['id']+"'>"+product['descripcion']+"</option>");
+				
+					}
+				 status.innerHTML = listaMetodsP;
+                }
+		
+				
            });
 }
