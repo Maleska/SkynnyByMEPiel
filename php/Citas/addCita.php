@@ -24,6 +24,7 @@ $fecha = $_POST['fecha'];
 $hora = $_POST['hora'];
 $telefono = $_POST['telefono'];
 $email = $_POST['email'];
+$medio = $_POST['medio'];
 	
 //$hoy = getdate();
 	
@@ -38,7 +39,7 @@ $a=getdate("d/m/Y H:i:s");
 			$query = "";
 			$lastid = $conn->insert_id;
 
-			$query="Insert into citas (iduser,idservicio,fecha,hora,idestatus) values ('$lastid',$servicio,'$fecha','$hora',1)";
+			$query="Insert into citas (iduser,idservicio,fecha,hora,idmedio,idestatus) values ('$lastid',$servicio,'$fecha','$hora',$medio,1 )";
 
 			$conn->query($query);
 			//header("location:../index.html");

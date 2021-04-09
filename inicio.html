@@ -101,7 +101,8 @@
         	<ul>
 				<li><a href="#" style="color: white">CITAS</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#ModalRepRanFecha" style="color: white">REPORTE DE CITAS</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#ModalRepGanancia" style="color: white">REPORTE DE GANANCIAS</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#ModalRepGanancia" style="color: white" hidden="">REPORTE DE GANANCIAS</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#ModalCitas" style="color: white" hidden="">NUEVA CITA</a></li>
 			</ul>
 		</nav>
       <h1>CITAS AGENDADAS</h1>
@@ -118,6 +119,7 @@
 					<th>TELÉFONOS</th>
 					<th>E-MAIL</th>
 					<th>SERVICIO</th>
+					<th>COSTO</th>
 					<th>ESTATUS</th>
 					<th>MODIFICAR</th>
 					<th>PAGAR</th>
@@ -1046,39 +1048,213 @@
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
 			  <div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel"></h5>
+				<h5 class="modal-title" id="exampleModalLabel">PAGAR SERVICIO</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				  <span aria-hidden="true">&times;</span>
 				</button>
 			  </div>
 			  <div class="modal-body">
-				  <label><span>Nombre</span></label>
+				  <label><span style="font-weight: bold">Nombre</span></label>
 				  <p><label><span id="lblNombreP"></span></label></p>
-				  <br>
-				  <label><span>Apellido</span></label>
+				  
+				  <label><span style="font-weight: bold">Apellido</span></label>
 				  <p><label><span id="lblApellidoP"></span></label></p>
-				  <br>
-				  <label><span>Servicio</span></label>
+				  
+				  <label><span style="font-weight: bold">Servicio</span></label>
 				  <p><label><span id="lblServicioP"></span></label></p>
-				  <br>
-				  <label><span>Precio</span>$0.0</label>
-				  <p><label><span id="lblPrecioP"></span></label></p>
-				  <br>
-				  <label><span>Fecha</span></label>
+				  
+				  <label><span style="font-weight: bold">Precio</span></label>
+				  <p><label><span id="lblPrecioP">$0.0</span></label></p>
+				  
+				  <label><span style="font-weight: bold">Fecha</span></label>
 				  <p><label><span id="lblFechaP"></span></label></p>
-				  <br>
-				  <label><span>Hora</span></label>
+				  
+				  <label><span style="font-weight: bold">Hora</span></label>
 				  <p><label><span id="lblHoraP"></span></label></p>
-				  <label id="idCita"></label>
+				  <label><span style="font-weight: bold">MÉTODO DE PAGO</span></label>
+				  <p><select id="selMetPago" class="form-control"></select></p>
+				  <label id="idCita" hidden=""></label>
+				  <label id="idSer" hidden=""></label>
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" id="btnCerrMod" data-dismiss="modal">CERRAR</button>
-				<button type="submit" class="btn btn-primary" style="background-color: #dccae7; color: black" onClick="">PAGAR</button>
+				<button type="submit" class="btn btn-primary" style="background-color: #dccae7; color: black" onClick="addPAgo()">PAGAR</button>
 			  </div>
 			</div>
 		  </div>
 		</div>
 	  <!--  Termina Modal Reporte por rango de fechas   -->
+	  
+	   <!-- Modal  para hacer una cita-->
+	  <!--<form action="php/validalogin.php" method="post">-->
+		<div class="modal fade" id="ModalCitas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabelnam">HACER CITA</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				  <div class="container-fluid">
+				  	<input type="text" class="form-control" id="nombre" placeholder="Nombres" style="text-transform: uppercase" required>
+					  <br>
+				 	<input type="text" class="form-control" id="apellido" placeholder="Apellidos" style="text-transform: uppercase" required>
+					  <br>
+					<input type="tel" class="form-control" maxlength="10"  id="telefono" placeholder="TELEFONO" required>
+					  <br>
+					<input type="email" class="form-control" id="correo" placeholder="E-mail" required>
+				  </div>
+				  <div class="container-fluid">
+				<label><span style="font-weight: bolder"> SELECCIONAR SERVICIO </span> </label>
+				  <p><select class="form-control" id="selServicio" onChange="changeCombo()" style="height: auto;width: auto">
+					 <!-- <option value="0"> -- SELECCIONE UNA OPCIÓN -- </option>
+					  <option value="1">RADIOFRECUENCIA</option>
+					  <option value="2">MADEROTERAPIA</option>
+					  <option value="3">CARBOXITERAPIA</option>
+					  <option value="4">ULTRASONIDO</option>
+					  <option value="5">ENZIMAS</option>
+					  <option value="6">ELECTRODOS</option>-->
+					  </select></p>
+				  </div>
+				 <div id="divCalendario" class="container-fluid" style="display: none">
+					<div class="col-sm-6">
+						<div class="form-group">
+							<span style="font-weight: bolder">SELECCIONAR FECHA</span>
+							<div class="input-group date" id="datetimepicker1">
+								<input type="date" id="fecha" class="form-control" onChange="selectDate()" />
+								<span class="input-group-addon">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div id="divTable" class="container-fluid;" style="display: none;">
+					 <input type="text" id="hora" style="display: none">
+						<select id="selHora" class="verde-option " onChange="selectTime()">
+							<option value="0"> -- SELECCIONE UNA OPCION -- </option>
+							<option value="09"> 9:00 a.m.</option>
+							<option value="10">10:00 a.m.</option>
+							<option value="11">11:00 a.m.</option>
+							<option value="12">12:00 a.m.</option>
+							<option value="13">1:00 p.m.</option>
+							<option value="14">2:00 p.m.</option>
+							<option value="15">3:00 p.m.</option>
+							<option value="16">4:00 p.m.</option>
+							<option value="17">5:00 p.m.</option>
+							<option value="18">6:00 p.m.</option>
+							<option value="19">7:00 p.m.</option>
+							<option value="20">8:00 p.m.</option>
+						
+						</select>
+						 <!--<table>
+							 <thead><tr><td><span style="font-weight: bolder">Favor de seleccionar la hora</span></td></tr></thead>
+						<tbody id="tbodyHours">
+							 <tr>
+								<td>
+								 	<div id="div9am" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(9)"><span>9:00 am</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div10am" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(10)"><span>10:00 am</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div11am" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(11)"><span>11:00 am</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div12pm" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(12)"><span>12:00 pm</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div13pm" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(13)"><span>1:00 pm</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div14pm" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(14)"><span>2:00 pm</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div15pm" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(15)"><span>3:00 pm</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div16pm" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(16)"><span>4:00 pm</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div17pm" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(17)"><span>5:00 pm</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div18pm" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(18)"><span>6:00 pm</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div19pm" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(19)"><span>7:00 pm</span> </div>
+									
+								 </td>
+								 
+							</tr>
+							<tr>
+								<td>
+								 	<div id="div20pm" style="background-color: lightgreen;font-weight: bolder" class="form-control" onClick="selectTime(20)"><span>8:00 pm</span> </div>
+									
+								 </td>
+								 
+							</tr>
+						</tbody>
+						</table>-->
+					 
+					</div>
+					 <div id="divAlerta" style="display: none">
+					 	<span class="rojo-option"><em>La hora seleccionada ya no esta disponible</em></span>
+					 </div>
+					 <!--<input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Seleccionar fecha" data-rule="minlen:4" data-msg="Please enter at least 4 chars">-->
+					 <!--<input type="datetime" name="datetime" class="form-control datepicker" id="datetime" placeholder="Seleccionar fecha" data-rule="minlen:4" >-->
+					 
+				  </div>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>
+				<button type="button" onClick="agregarcita()" style="background-color: #dccae7;color:black" class="btn btn-primary">Hacer cita</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		  <!--</form>-->
 	  
   </main><!-- End #main -->
 

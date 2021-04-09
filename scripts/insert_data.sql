@@ -30,3 +30,10 @@ INSERT INTO skinny.metodospago (descripcion,active) VALUES
 	 ('CHEQUE',0),
 	 ('TRANSFERENCIA',0),
 	 ('OTRO PAGO',0);
+	 
+-- MEDIOS
+INSERT INTO skinny.medios (descripcion,active) VALUES
+	 ('FÍSICO',1),
+	 ('SITIO WEB',1),
+	 ('REDES SOCIALES',1),
+	 ('CALL CENTER',1);
