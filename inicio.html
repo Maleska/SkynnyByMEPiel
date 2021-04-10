@@ -87,6 +87,7 @@
 		<div class="d-lg-block" >
 	  <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalVideos" hidden="">Subir video</a>
 		<a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalExito" hidden=""></a>
+			 <a href="#appointment" class="appointment-btn scrollto" data-toggle="modal" data-target="#ModalAlertaCita1" id="btnAlertaCitas" style="display: none;background-color: #dccae7">HAZ UNA CITA</a>
       <a href="#appointment" class="appointment-btn scrollto" style="display: none">HAZ UNA CITA</a>
 	  <a href="#" style="background-color: #dccae7;color: black" class="appointment-btn scrollto" onClick="destroyCookie()" >CERRAR SESION</a>
 	  </div>
@@ -102,7 +103,7 @@
 				<li><a href="#" style="color: white">CITAS</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#ModalRepRanFecha" style="color: white">REPORTE DE CITAS</a></li>
 				<li><a href="#" data-toggle="modal" data-target="#ModalRepGanancia" style="color: white" hidden="">REPORTE DE GANANCIAS</a></li>
-				<li><a href="#" data-toggle="modal" data-target="#ModalCitas" style="color: white" hidden="">NUEVA CITA</a></li>
+				<li><a href="#" data-toggle="modal" data-target="#ModalCitas" style="color: white">NUEVA CITA</a></li>
 			</ul>
 		</nav>
       <h1>CITAS AGENDADAS</h1>
@@ -1108,15 +1109,7 @@
 				  </div>
 				  <div class="container-fluid">
 				<label><span style="font-weight: bolder"> SELECCIONAR SERVICIO </span> </label>
-				  <p><select class="form-control" id="selServicio" onChange="changeCombo()" style="height: auto;width: auto">
-					 <!-- <option value="0"> -- SELECCIONE UNA OPCIÓN -- </option>
-					  <option value="1">RADIOFRECUENCIA</option>
-					  <option value="2">MADEROTERAPIA</option>
-					  <option value="3">CARBOXITERAPIA</option>
-					  <option value="4">ULTRASONIDO</option>
-					  <option value="5">ENZIMAS</option>
-					  <option value="6">ELECTRODOS</option>-->
-					  </select></p>
+				  <p><select class="form-control" id="selServicioCita" onChange="changeComboCita()" style="height: auto;width: auto"></select></p>
 				  </div>
 				 <div id="divCalendario" class="container-fluid" style="display: none">
 					<div class="col-sm-6">
@@ -1249,12 +1242,35 @@
 			  </div>
 			  <div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita">Cerrar</button>
-				<button type="button" onClick="agregarcita()" style="background-color: #dccae7;color:black" class="btn btn-primary">Hacer cita</button>
+				<button type="button" onClick="agregarcitaportal()" style="background-color: #dccae7;color:black" class="btn btn-primary">Hacer cita</button>
 			  </div>
 			</div>
 		  </div>
 		</div>
 		  <!--</form>-->
+	  
+	   <!-- mODAL ALERTA CITA -->
+	  <div class="modal fade" id="ModalAlertaCita1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLabelnam1">CITA</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body">
+				 <span style="font-weight: bolder;text-transform: uppercase">CITA AGENDADA CORRECTAMENTE</span>
+				  <label id="lbldatoscitas"></label>
+				  <p><span>FAVOR DE PRESENTARSE CON SU INE A RECEPCION</span></p>
+			  </div>
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" id="btnCerrarModalCita1">CERRAR</button>
+				<!--<button type="button" onClick="agregarcita()" class="btn btn-primary">Hacer cita</button>-->
+			  </div>
+			</div>
+		  </div>
+		</div>
 	  
   </main><!-- End #main -->
 
@@ -1344,8 +1360,9 @@
   <script src="assets/vendor/venobox/venobox.min.js"></script>
   <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
   <script src="assets/vendor/counterup/counterup.min.js"></script>
-  <!--<script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>-->
+  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
   <script src="assets/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+	
 	
 	<!--  librerias para descargar excel -->
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
@@ -1374,6 +1391,7 @@
 			format: 'dd/mm/yyyy'
 		});*/
 		 // $("#txbdate").val(today);
+				 getServicioscita();
 				getCitasByFecha();
 			});
 	</script>

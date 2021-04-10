@@ -28,7 +28,7 @@ $medio = $_POST['medio'];
 	
 //$hoy = getdate();
 	
-$a=getdate("d/m/Y H:i:s");
+//$a=getdate("d/m/Y H:i:s");
 
 	if(isset($servicio)){
 	

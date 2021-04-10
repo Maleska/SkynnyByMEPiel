@@ -247,6 +247,25 @@ function changeCombo(){
 	}
 }
 
+function changeComboCita(){
+	var e = document.getElementById("selServicioCita");
+	var valor = e.options[e.selectedIndex].value;
+
+	if(valor != "0"){
+		
+		var x = document.getElementById("divCalendario");
+		var xx = document.getElementById("divTable");
+	
+		  if (x.style.display === "none") {
+			x.style.display = "block";
+			  xx.style.display = "block";
+		  } else {
+			x.style.display = "none";
+			  xx.style.display = "none";
+		  }
+	}
+}
+
 function selectDate(){
 	var x = document.getElementById("divTable");
 	x.style.display = "block";
@@ -469,6 +488,104 @@ function agregarcita(){
 	}
 }
 
+function agregarcitaportal(){
+	"use strict";
+	
+	var splitServicio=[];
+	var nombre = $("#nombre").val();
+	var apellido = $("#apellido").val();
+	var fecha = $("#fecha").val();
+	//var hora = $("#hora").val();
+	var telefono =$("#telefono").val();
+	var email = $("#correo").val();
+	var e = document.getElementById("selServicioCita");
+	var valor = e.options[e.selectedIndex].value;
+	
+	var ee = document.getElementById("selHora");
+	var hora = ee.options[ee.selectedIndex].value;
+	
+	
+	if(nombre === ""){
+		alert("FAVOR DE AGREGAR UN NOMBRE");
+		return;
+	}
+	if(apellido === ""){
+		alert("FAVOR DE AGREGAR UN APELLIDO");
+		return;
+	}
+	if(fecha === ""){
+		alert("FAVOR DE AGREGAR UNA FECHA");
+		return;
+	}
+	if(hora === "0"){
+		alert("FAVOR DE AGREGAR UNA HORA");
+		return;
+	}
+	if(telefono === ""){
+		alert("FAVOR DE AGERGAR UN TELÉFONO");
+		return;
+	}
+	if(email ===""){
+		alert("FAVOR DE AGREGAR UN EMAIL");
+		return;
+	}
+	
+	var split= fecha.split('-');
+	splitServicio = valor.split('-');
+	
+	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
+	document.getElementById('lbldatoscitas').innerHTML = "";
+	document.getElementById('lbldatoscitas').innerHTML ="CITA AGENDADA PARA: " + nombre.toUpperCase() +" " + apellido.toUpperCase() + " FECHA " + fecha + " HORA " + hora +":00 \n PAGO EN RECEPCIÓN \n METODO DE PAGO EN EFECTVO Y TARJETA DE CREDITO - DÉDITO";
+	
+	if(ban === true){
+	
+	$.ajax({
+            type:'POST', //aqui puede ser igual get
+            url: 'php/Citas/addCita.php',//aqui va tu direccion donde esta tu funcion php
+            data: {nombre:nombre.toUpperCase(),apellido:apellido.toUpperCase(),fecha:fecha,hora:hora,telefono:telefono,email:email,servicio:splitServicio[0],medio:"1"},//aqui tus datos
+		 	//dataType: 'JSON',
+			dataType: 'html',
+            success:function(response){
+                //lo que devuelve tu archivo mifuncion.php
+				clearFill();
+				var datos = response;
+                var target = $("#tableCitas");
+                //target.empty();
+              
+                for (var i = 0; i < datos.length; i++) {
+                   
+                    //var product = datos[i];
+							/*if(product['titulo'] !== ""){
+                    target.append("<tr><td>"+ product['id'] +"</td><td>"+ product['titulo'] +"</td><td>"+ product['tipo'] +"</td><td><img src=\"images/ic_edit.png\" style=\"height: 15px;width: 15px\"></td><td><img src=\"images/if_Delete.png\" style=\"height: 15px;width: 15px\"></td></tr>");
+					
+							}*/
+					
+					
+					//$('#selServicio option[value="0"]').attr("selected",true);
+					$('#selServicio').val("0");
+					//$('#selHora option[value="0"]').attr("selected",true);
+					$("#selHora").val("0");
+					var x = document.getElementById("divCalendario");
+
+					x.style.display = "none";
+					var xx = document.getElementById("divTable");
+						xx.style.display = "none";
+						  
+					document.getElementById("fecha").valueAsDate = new Date();
+						$("#btnCerrarModalCita").click();
+					
+					 }
+				//alert("Cita agendada");
+				getCitasByFecha();
+				$("#btnAlertaCitas").click();
+                }
+           });
+	}else{
+		 ban =false;
+		 document.getElementById("divAlerta").style.display = "inline";
+	}
+}
+
 function clearFill(){
 	$("#nombre").val('');
 	$("#apellido").val('');
@@ -639,6 +756,33 @@ function getServicios(){
            });	
 }
 
+function getServicioscita(){
+	var servicios = document.getElementById("selServicioCita");
+	//var valor = e.options[e.selectedIndex].value;
+	$.ajax({
+            type:'post', //aqui puede ser igual get
+            url: 'php/Servicios/getServicios.php',//aqui va tu direccion donde esta tu funcion php
+            //data: {citaid:id},//aqui tus datos
+		 	dataType: 'JSON',
+            success:function(response){
+               		var datos =response;
+				 	
+                	//servicios.append('<option value=\'0\'> -- SELECCIONE UNA OPCIÓN -- </option>');
+				listaServicios.push("<option value=\'0\'> -- SELECCIONE UNA OPCIÓN -- </option>");
+               for (var i = 0; i < datos.length; i++) {
+                   
+                    var product = datos[i];
+					
+						listaServicios.push("<option value='"+product['id']+"-"+product['costo']+"'>"+product['descripcion']+"</option>");
+				
+					}
+				 servicios.innerHTML = listaServicios;
+                }
+		
+				
+           });	
+}
+
 function getStatus(){
 	
 	var status = document.getElementById("selStatus");
@@ -751,13 +895,17 @@ function getReporteGanancia(){
 function ConvertToCSV(objArray) {
             var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
             var str = '';
-
+			var str = "ID,NOMBRE,APELLIDO,SERVICIO,FECHA,HORA,TELEFONO,CORREO ELECTRONICO,ESTATUS" + '\r\n';
             for (var i = 0; i < array.length; i++) {
-                var line = '';
+               var line ='';
+				
                 for (var index in array[i]) {
                     if (line != '') line += ','
-
-                    line += array[i][index];
+					if(index == "hora"){
+						 line += array[i][index] + ":00";
+					}else{
+                    	line += array[i][index];
+					}
                 }
 
                 str += line + '\r\n';

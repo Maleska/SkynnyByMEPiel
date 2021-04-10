@@ -22,7 +22,7 @@ $username = $_POST['login'];
 
 $password  = $_POST['password'];
 	
-	$query ="select count(id) as count from users where nombres = '$username' and password = '$password' and active =1";
+	$query ="select * from users where nombres = '$username' and password = '$password' and active =1";
 	//echo($query);
 
 	$resultado =mysqli_query($conn,$query );
@@ -35,25 +35,22 @@ $password  = $_POST['password'];
    //echo( $row['count']);
 		
 		$table = array();
-	while($row = mysqli_fetch_array($result)){
-		$table []= array();
-			$_SESSION["rol"] =$row['id'] ;
+	while($row = mysqli_fetch_array($resultado)){
+		$_SESSION["rol"] =$row['idrol'] ;
 		//session_regenerate_id();
 		$_COOKIE["valida"] = "activo";
-		//echo("alert('Si entro a la validacion')");
+		//echo("alert('"+ $_SESSION["rol"] +"')");
+		  $idrol=$row['idrol'];
 		 echo "<script src='../../assets/js/functions.js'></script>";
-		 echo "<script>document.cookie = '"+$row['idrol']+"'; 
+		 echo "<script>document.cookie = '$idrol'; 
 		 var decodedCookie = decodeURIComponent(document.cookie);
-		 //alert(decodedCookie);
-		 //alert(document.cookie);
-		 //alert('No entro o quisas si');
-		 createCookie('"+ $row['id'] +"');
+		 createCookie('$idrol');
 		 </script>";
 		 echo "<script>  </script>";
-		);
-	}
-		$conn->close();
-	header('Content-Type: application/json');
+	};
+	
+		//$conn->close();
+	//header('Content-Type: application/json');
 		
 	/*	$cantidad =$row['count'];
 	if($cantidad == 1){
@@ -72,6 +69,7 @@ $password  = $_POST['password'];
 		 echo "<script>  </script>";
 		 //echo "<script> location.href='../inicio.html'; </script>";
 		 exit;*/
+		echo "<script> location.href='../../inicio.html'; </script>";
 	}else{
 		//echo("alert('No entro a la validacion)");
 		 echo "<script> location.href='../index.html'; </script>";
@@ -79,6 +77,6 @@ $password  = $_POST['password'];
 	}
 }
 
-}
+
 $conn -> close();
 ?>
