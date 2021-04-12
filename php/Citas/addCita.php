@@ -2,10 +2,11 @@
 
 session_start();
 
-$servername = "localhost";
-$database = "skinny";
-$username = "root";
-$password = "";
+	$servername = "72.249.55.42";
+	$database = "skinnyby_skinny";
+	$username = "skinnyby_remoto";
+	$password = "Hehj900501";
+
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
@@ -34,17 +35,21 @@ $a=getdate("d/m/Y H:i:s");
 	
 	$query = "Insert Into users (idrol,nombres,apellidos,telefono,email) values(2,'$nombre','$apellido','$telefono','$email')";
 	//echo($query);
-	
+	/*echo "REGISTRO PACIENTE";
 		if($conn ->query($query) === TRUE){
+			echo "ENTRA AL IF";
+			echo "INSERT INTO citas (iduser,idservicio,fecha,hora,idmedio,idestatus) values ('5',$servicio,'$fecha','$hora',$medio,1 )"
 			$query = "";
 			$lastid = $conn->insert_id;
 
-			$query="Insert into citas (iduser,idservicio,fecha,hora,idmedio,idestatus) values ('$lastid',$servicio,'$fecha','$hora',$medio,1 )";
-
+			$query="INSERT INTO citas (iduser,idservicio,fecha,hora,idmedio,idestatus) values ('$lastid',$servicio,'$fecha','$hora',$medio,1 )";
+echo ".$query.";
 			$conn->query($query);
 			//header("location:../index.html");
 			//echo('<script>window.location.href="./index.html";</script>');
 
+		} else {
+			echo "NO ENTRA";
 		}
 	}
 	/*$resultado =mysqli_query($conn,$query );
@@ -69,6 +74,6 @@ $a=getdate("d/m/Y H:i:s");
 
  
 }
-echo "Registro guardado";
+echo "REGISTRO CITA GUARDADO";
 $conn -> close();
 ?>

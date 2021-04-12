@@ -3,10 +3,10 @@
 	session_start();
 	
 	 
-	$servername = "localhost";
-	$database = "skinny";
-	$username = "root";
-	$password = "";
+	$servername = "72.249.55.42";
+	$database = "skinnyby_skinny";
+	$username = "skinnyby_remoto";
+	$password = "Hehj900501";
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $database);

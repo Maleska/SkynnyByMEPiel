@@ -419,7 +419,7 @@ function agregarcita(){
 	
 	var newfecha = split[2] +'/' + split[1]+'/' +split[0];
 	document.getElementById('lbldatoscitas').innerHTML = "";
-	document.getElementById('lbldatoscitas').innerHTML ="CITA AGENDADA PARA: " + nombre.toUpperCase() +" " + apellido + " FECHA " + fecha + " HORA " + hora +":00 \n PAGO EN RECEPCIÓN \n METODO DE PAGO EN EFECTVO Y TARJETA DE CREDITO - DÉDITO";
+	document.getElementById('lbldatoscitas').innerHTML ="CITA AGENDADA PARA: " + nombre.toUpperCase() +" " + apellido.toUpperCase() + " FECHA " + fecha + " HORA " + hora +":00 \n PAGO EN RECEPCIÓN \n METODO DE PAGO EN EFECTVO Y TARJETA DE CREDITO - DÉDITO";
 	
 	if(ban === true){
 	
