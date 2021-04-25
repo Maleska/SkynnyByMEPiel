@@ -16,6 +16,9 @@ function showsections (id){
 				document.getElementById("Carboxiterapia").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}else{
 				document.getElementById("radiofrecuencia").style.display = "inline";
 				document.getElementById("divBienvenida").style.display="none";
@@ -24,6 +27,9 @@ function showsections (id){
 				document.getElementById("Carboxiterapia").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}
 			break;
 			 
@@ -36,6 +42,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}else{
 				document.getElementById("radiofrecuencia").style.display = "none";
 				document.getElementById("divBienvenida").style.display="none";
@@ -44,6 +53,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}
 			break;
 		case 3:
@@ -55,6 +67,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}else{
 				document.getElementById("radiofrecuencia").style.display = "none";
 				document.getElementById("divBienvenida").style.display="none";
@@ -63,6 +78,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}
 			break;
 		case 4:
@@ -74,6 +92,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}else{
 				document.getElementById("radiofrecuencia").style.display = "none";
 				document.getElementById("divBienvenida").style.display="none";
@@ -82,6 +103,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="inline";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}
 			break;
 		case 5:
@@ -93,6 +117,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}else{
 				document.getElementById("radiofrecuencia").style.display = "none";
 				document.getElementById("divBienvenida").style.display="none";
@@ -101,6 +128,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="none";
 				document.getElementById("Enzimas").style.display="inline";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}
 			break;
 		case 6:
@@ -112,6 +142,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="none";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}else{
 				document.getElementById("radiofrecuencia").style.display = "none";
 				document.getElementById("divBienvenida").style.display="none";
@@ -120,6 +153,9 @@ function showsections (id){
 				document.getElementById("Ultrasonido").style.display="none";
 				document.getElementById("Enzimas").style.display="none";
 				document.getElementById("Electrodos").style.display="inline";
+				document.getElementById("paquete1").style.display ="none";
+				document.getElementById("paquete2").style.display ="none";
+				document.getElementById("paquete3").style.display ="none";
 			}
 			break;
 		case 7:
@@ -695,6 +731,7 @@ function getCitasByFecha(){
 }
 
 function cargarInfo(id){
+	document.getElementById('lblidservicio').innerText=id;
 		getServicios();
 		getStatus();
 	$.ajax({
@@ -718,9 +755,9 @@ function cargarInfo(id){
 					//document.getElementById('lblNombre').innerText = product['nombres'] ;
 					//document.getElementById('lblstatus').innerText =  datos['status'];
 					$('#selStatus').val(datos['idstatus']);
-					$('#selServicio').val(datos['idservicio']);
+					//$('#selServicio').val(id);
 					document.getElementById('lblid').innerText=datos['id'];
-				
+					
 				//	}
 					getCitasByFecha();
                 }
@@ -827,7 +864,7 @@ function actualizarEvento(){
 	
 	
 		var idcita = document.getElementById('lblid').innerText;
-		var idservicio = valor;
+		var idservicio = document.getElementById('lblidservicio').innerText;
 		var fecha = document.getElementById('lblFecha').innerText;
 	var hora = document.getElementById('lblHora').innerText.replace(":00","");
 	//var idstatus = idstatus;
@@ -835,7 +872,7 @@ function actualizarEvento(){
 		$.ajax({
             type:'post', //aqui puede ser igual get
             url: 'php/Citas/updateCita.php',//aqui va tu direccion donde esta tu funcion php
-            data: {citaid:idcita,servicio:idservicio,fecha:fecha,hora:hora,estatus:idstatus},//aqui tus datos
+            data: {citaid:idcita,servicio:idservicio,fecha:fecha,hora:hora,estatus:idstatus,medio:2},//aqui tus datos
 		 	dataType: 'html',
             success:function(response){
                		var datos =response;

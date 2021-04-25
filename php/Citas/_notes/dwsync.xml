@@ -2,4 +2,8 @@
 <dwsync>
 <file name="getCitasByRangoFecha.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132548964845243093" remote="132548964840000000" Dst="1" />
 <file name="addCita.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132625537822963135" remote="132625537820000000" Dst="2" />
+<file name="getCitas.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132532591733962521" remote="132532555730000000" Dst="2" />
+<file name="getCitasByFecha.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132617958304991785" remote="132617922300000000" Dst="2" />
+<file name="getCitasByFechaOnlyHora.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132545500018698963" remote="132545464010000000" Dst="2" />
+<file name="getCitasById.php" server="C:/xampp/htdocs/SkinnybyMEPIEL/" local="132534999338818814" remote="132534963330000000" Dst="2" />
 </dwsync>

@@ -1,11 +1,11 @@
 <?php
-
 session_start();
 
-$servername = "localhost";
-$database = "skinny";
-$username = "root";
-$password = "";
+	$servername = "72.249.55.42";
+	$database = "skinnyby_skinny";
+	$username = "skinnyby_remoto";
+	$password = "Hehj900501";
+
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
@@ -27,7 +27,7 @@ if( $conn ) {
 	if(isset($servicio)){
 	
 	$query = "UPDATE citas
-				SET idservicio = $servicio, fecha = '$fecha', hora = '$hora', idestatus = $estatus, idmedio = = $medio
+				SET idservicio = $servicio, fecha = '$fecha', hora = '$hora', idestatus = $estatus, idmedio = $medio
 				WHERE id = $citaid";
 	//echo($query);
 	
